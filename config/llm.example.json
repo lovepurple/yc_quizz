@@ -1,0 +1,26 @@
+{
+  "description": "Quizzle 智能导题 LLM 配置模板。复制为 llm.json 并填入真实凭证",
+  "llm": {
+    "baseUrl": "https://your-endpoint/v1",
+    "apiKey": "sk-REPLACE_ME",
+    "model": "your-text-model",
+    "visionModel": "your-vision-model",
+    "contextWindow": 1000000,
+    "maxTokens": 384000,
+    "reasoning": true,
+    "temperature": 0.2,
+    "timeoutMs": 180000,
+    "maxRetries": 3
+  },
+  "import": {
+    "enableLlm": true,
+    "fallbackToTemplate": true,
+    "maxQuestionsPerFile": 500,
+    "maxPublishPerBatch": 50
+  },
+  "knowledge": {
+    "taxonomyFile": "data/knowledge/knowledge-tree.json",
+    "maxCandidatesPerQuestion": 8,
+    "enableMatch": true
+  }
+}

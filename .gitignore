@@ -19,6 +19,10 @@ node_modules/
 .env
 .env.*
 !.env.example
+
+# LLM 真实凭证不入库，仅提交 llm.example.json
+config/llm.json
+config/llm.local.json
 **/llm-config.local.json
 
 # ── 操作系统/编辑器噪音 ────────────────────────────
