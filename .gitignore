@@ -1,0 +1,33 @@
+# ── 容器镜像与备份产物 ──────────────────────────────
+quizzle-image.tar
+image-inspect.json
+container-inspect
+mounts.json
+volume-inspect
+SHA256SUMS.txt
+
+# ── 生产数据卷（含真实师生活账号、成绩、密钥，禁止入库）──
+quizzle-data/
+
+# ── 运行时临时/缓存 ────────────────────────────────
+.pi/
+node_modules/
+*.tmp
+*.log
+
+# ── 本地环境与凭证 ─────────────────────────────────
+.env
+.env.*
+!.env.example
+**/llm-config.local.json
+
+# ── 操作系统/编辑器噪音 ────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ── 抽取过程中的中间产物 ─────────────────────────────
+testData/kb/_work/
+testData/kb/*.html

@@ -1,0 +1,13 @@
+﻿育才实验学校 Quizzle 系统一键备份
+备份时间：2026-11-06 15:50:26
+容器名称：quizzle
+容器原始运行状态：True
+备份镜像：quizzle-backup:20261106_154952
+镜像文件：quizzle-image.tar
+数据挂载数量：1
+说明：
+1. quizzle-image.tar 保存本次备份时的容器镜像。
+2. quizzle-data / volumes / bind-mounts 保存容器挂载的数据。
+3. container-inspect、mounts.json、volume-inspect 保存容器和数据卷配置。
+4. 请保留整个备份文件夹，不要只复制其中一个文件。
+5. 备份可能包含账号、测验、成绩及环境变量等敏感信息，请妥善保管，不要公开上传。
