@@ -1,0 +1,25 @@
+{
+  "llm": {
+    "baseUrl": "https://sub2api.guangze-song.top/v1",
+    "apiKey": "sk-709b53e00cc2e0e3128ea43402b09d74c0923df720fe7b8e43ebfa06f497089c",
+    "model": "deepseek-v4.1-flash",
+    "visionModel": "deepseek-v4.1-flash",
+    "contextWindow": 1000000,
+    "maxTokens": 384000,
+    "reasoning": true,
+    "temperature": 0.2,
+    "timeoutMs": 180000,
+    "maxRetries": 3
+  },
+  "import": {
+    "enableLlm": true,
+    "fallbackToTemplate": true,
+    "maxQuestionsPerFile": 500,
+    "maxPublishPerBatch": 50
+  },
+  "knowledge": {
+    "taxonomyFile": "data/knowledge/knowledge-tree.json",
+    "maxCandidatesPerQuestion": 8,
+    "enableMatch": true
+  }
+}

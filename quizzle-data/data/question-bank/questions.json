@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "f9a1070b-c328-4284-938a-7ec868502a68",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "如图，已知抛物线y＝ax^{2}+bx+c过点C（0，﹣2）与x轴交点的横坐标分别为x_{1}，x_{2}，且﹣1＜x_{1}＜0，2≤x_{2}＜3， 则a﹣b+c＜0；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": false
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": true
+        }
+      ],
+      "points": 2,
+      "source": "教师题库",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "数学"
+      ],
+      "tags": [
+        "单元测试"
+      ],
+      "className": "",
+      "media": [
+        {
+          "name": "m1.png",
+          "kind": "image",
+          "mime": "image/png",
+          "size": 10435
+        }
+      ],
+      "origin": "第1题（原文未标注题号）",
+      "createdAt": "2026-11-06T04:25:59.568Z",
+      "updatedAt": "2026-11-06T04:29:25.282Z"
+    },
+    {
+      "id": "fceb25f0-5269-4727-8cb1-3515d28565ee",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "方程ax^{2}+bx+c+2＝0有两个不相等的实数根；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": true
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": false
+        }
+      ],
+      "points": 2,
+      "source": "教材原题",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "数学"
+      ],
+      "tags": [
+        "单元测试"
+      ],
+      "className": "",
+      "media": [],
+      "origin": "第2题",
+      "createdAt": "2026-11-06T04:25:59.568Z",
+      "updatedAt": "2026-11-06T04:25:59.568Z"
+    },
+    {
+      "id": "0b8b6b0e-3600-412e-b179-20daed61dc4f",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "a+b＞0；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": false
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": true
+        }
+      ],
+      "points": 2,
+      "source": "教材原题",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "数学"
+      ],
+      "tags": [
+        "单元测试"
+      ],
+      "className": "",
+      "media": [],
+      "origin": "第3题",
+      "createdAt": "2026-11-06T04:25:59.568Z",
+      "updatedAt": "2026-11-06T04:25:59.568Z"
+    },
+    {
+      "id": "14d86aab-28d3-4137-9aa0-51dba3854637",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "a＞\\frac{2}{3}；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": true
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": false
+        }
+      ],
+      "points": 2,
+      "source": "练习册",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "数学"
+      ],
+      "tags": [
+        "单元测试"
+      ],
+      "className": "",
+      "media": [],
+      "origin": "第4题",
+      "createdAt": "2026-11-06T04:25:59.569Z",
+      "updatedAt": "2026-11-06T04:29:43.012Z"
+    },
+    {
+      "id": "3c8cb171-a8e3-4bf4-a974-6eea036f54db",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "b^{2}﹣4ac＞4a^{2}.",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": true
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": false
+        }
+      ],
+      "points": 2,
+      "source": "学科网",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "数学"
+      ],
+      "tags": [
+        "单元测试"
+      ],
+      "className": "",
+      "media": [],
+      "origin": "第5题",
+      "createdAt": "2026-11-06T04:25:59.569Z",
+      "updatedAt": "2026-11-06T04:29:17.774Z"
+    },
+    {
+      "id": "8f35923d-d12f-474e-a58d-4b1bce3a214e",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "如图，已知抛物线y＝ax^{2}+bx+c过点C（0，﹣2）与x轴交点的横坐标分别为x_{1}，x_{2}，且﹣1＜x_{1}＜0，2≤x_{2}＜3，则a﹣b+c＜0；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": false
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": true
+        }
+      ],
+      "points": 2,
+      "source": "教师题库",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "等边三角形"
+      ],
+      "tags": [
+        "测试"
+      ],
+      "className": "",
+      "media": [
+        {
+          "name": "m1.png",
+          "kind": "image",
+          "mime": "image/png",
+          "size": 10435
+        }
+      ],
+      "origin": "第1题",
+      "createdAt": "2026-11-06T07:40:42.016Z",
+      "updatedAt": "2026-11-06T07:40:42.016Z"
+    },
+    {
+      "id": "d54230d6-f8ba-476c-a5e0-078c74b3712b",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "如图，已知抛物线y＝ax^{2}+bx+c过点C（0，﹣2）与x轴交点的横坐标分别为x_{1}，x_{2}，且﹣1＜x_{1}＜0，2≤x_{2}＜3，则方程ax^{2}+bx+c+2＝0有两个不相等的实数根；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": true
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": false
+        }
+      ],
+      "points": 2,
+      "source": "教师题库",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "easy",
+      "knowledgePoints": [
+        "等边三角形"
+      ],
+      "tags": [
+        "测试"
+      ],
+      "className": "",
+      "media": [
+        {
+          "name": "m1.png",
+          "kind": "image",
+          "mime": "image/png",
+          "size": 10435
+        }
+      ],
+      "origin": "第2题",
+      "createdAt": "2026-11-06T07:40:42.017Z",
+      "updatedAt": "2026-11-06T07:40:42.017Z"
+    },
+    {
+      "id": "d2f93fdc-f790-4e16-b3c1-6036de9e7b1c",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "如图，已知抛物线y＝ax^{2}+bx+c过点C（0，﹣2）与x轴交点的横坐标分别为x_{1}，x_{2}，且﹣1＜x_{1}＜0，2≤x_{2}＜3，则a+b＞0；",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": false
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": true
+        }
+      ],
+      "points": 2,
+      "source": "教师题库",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "medium",
+      "knowledgePoints": [
+        "等边三角形"
+      ],
+      "tags": [
+        "测试"
+      ],
+      "className": "",
+      "media": [
+        {
+          "name": "m1.png",
+          "kind": "image",
+          "mime": "image/png",
+          "size": 10435
+        }
+      ],
+      "origin": "第3题",
+      "createdAt": "2026-11-06T07:40:42.017Z",
+      "updatedAt": "2026-11-06T07:40:42.017Z"
+    },
+    {
+      "id": "d7185ea4-52f1-4e65-92c0-42fd77968cf9",
+      "ownerId": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "ownerName": "admin",
+      "title": "如图，已知抛物线y＝ax^{2}+bx+c过点C（0，﹣2）与x轴交点的横坐标分别为x_{1}，x_{2}，且﹣1＜x_{1}＜0，2≤x_{2}＜3，则a＞\\frac{2}{3}；  如图，已知抛物线y＝ax^{2}+bx+c过点C（0，﹣2）与x轴交点的横坐标分别为x_{1}，x_{2}，且﹣1＜x_{1}＜0，2≤x_{2}＜3，则b^{2}﹣4ac＞4a^{2}.",
+      "type": "true-false",
+      "answers": [
+        {
+          "type": "text",
+          "content": "正确",
+          "is_correct": true
+        },
+        {
+          "type": "text",
+          "content": "错误",
+          "is_correct": false
+        }
+      ],
+      "points": 2,
+      "source": "教师题库",
+      "grade": "七年级",
+      "subject": "数学",
+      "difficulty": "hard",
+      "knowledgePoints": [
+        "等边三角形"
+      ],
+      "tags": [
+        "测试"
+      ],
+      "className": "",
+      "media": [
+        {
+          "name": "m1.png",
+          "kind": "image",
+          "mime": "image/png",
+          "size": 10435
+        }
+      ],
+      "origin": "第4题",
+      "createdAt": "2026-11-06T07:40:42.018Z",
+      "updatedAt": "2026-11-06T07:40:42.018Z"
+    }
+  ]
+}

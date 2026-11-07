@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "created": "2026-10-10T02:32:36.774Z",
+  "school": "育才实验学校",
+  "items": [
+    {
+      "relative": "data/branding/logo.png",
+      "existed": true,
+      "oldHash": "896b8adc4741695314f6a6fd11483bac0f2b4832f49fb899f7c2c875cec2b9e1",
+      "newHash": "0d9cadfeb51f0ae8f79552cd0d5eb0a7363ef9257856d4b151a4a0d7d7510637"
+    },
+    {
+      "relative": "data/branding/title.png",
+      "existed": true,
+      "oldHash": "33b78cef4a40284fea29015ca191042830c904269157fde4e81eaebffd1390d0",
+      "newHash": "64743cb074f60f890ed22d9119e4073e9192a3e49651322a46ed98c664cb9e51"
+    },
+    {
+      "relative": "data/branding/branding.json",
+      "existed": true,
+      "oldHash": "195d3ce23d62f45a2cdac3309e320fd361c293bc02056314af98869804745dd4",
+      "newHash": "bde1ebdda271db4c632a525305abd2ee6b57595b2a6a9941e848024c718402c4"
+    },
+    {
+      "relative": "content/logo.png",
+      "existed": true,
+      "oldHash": "896b8adc4741695314f6a6fd11483bac0f2b4832f49fb899f7c2c875cec2b9e1",
+      "newHash": "0d9cadfeb51f0ae8f79552cd0d5eb0a7363ef9257856d4b151a4a0d7d7510637"
+    },
+    {
+      "relative": "content/title.png",
+      "existed": true,
+      "oldHash": "33b78cef4a40284fea29015ca191042830c904269157fde4e81eaebffd1390d0",
+      "newHash": "64743cb074f60f890ed22d9119e4073e9192a3e49651322a46ed98c664cb9e51"
+    },
+    {
+      "relative": "dist/assets/images/logo.png",
+      "existed": true,
+      "oldHash": "896b8adc4741695314f6a6fd11483bac0f2b4832f49fb899f7c2c875cec2b9e1",
+      "newHash": "0d9cadfeb51f0ae8f79552cd0d5eb0a7363ef9257856d4b151a4a0d7d7510637"
+    },
+    {
+      "relative": "dist/assets/images/school-icon.png",
+      "existed": false,
+      "oldHash": null,
+      "newHash": "0d9cadfeb51f0ae8f79552cd0d5eb0a7363ef9257856d4b151a4a0d7d7510637"
+    },
+    {
+      "relative": "dist/assets/images/school-title.png",
+      "existed": false,
+      "oldHash": null,
+      "newHash": "64743cb074f60f890ed22d9119e4073e9192a3e49651322a46ed98c664cb9e51"
+    },
+    {
+      "relative": "dist/index.html",
+      "existed": true,
+      "oldHash": "ec8f2f47b3c62f2a2af8c1a3cc038f9704309ade99ac9a42a0d42f75991cfb82",
+      "newHash": "bc45a182676cef51b45b9fe48f149b64f28b081b7331b415f9d976890d6ced6c"
+    },
+    {
+      "relative": "data/school-package/student.html",
+      "existed": true,
+      "oldHash": "93ad4439dc4f4f569ad5ae8d0327dfc86fb7470ef8b94523dee8af5e466af7ff",
+      "newHash": "ec9fb31d7ee064515ab433b845d19d2562095a3121304eabd3689e1fc0073fc5"
+    },
+    {
+      "relative": "data/school-package/admin.html",
+      "existed": true,
+      "oldHash": "2380233ad448672b6f85f736ef5ca08efd37f8220953d97d63ab14e9a5e6f135",
+      "newHash": "44519972001fb447c782ff06e68fb19a1b6dc5d458fd503e421412f350218c73"
+    },
+    {
+      "relative": "data/school-roles-package/teacher-results.html",
+      "existed": true,
+      "oldHash": "dc5a92b29320a8344eb788c91eb5272290aa7173b6c7f8655e0a571aed1084e8",
+      "newHash": "ec49e3379ba5bea090bdabd8e49abcbd1b7f044b86ec57ca637786299b68be30"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+/* SCHOOL_IMPORT_TEMPLATE_DOWNLOAD_V1 */
+.template-download{margin:0 0 20px;padding:15px 13px 11px;border:1px solid #dedaf6;border-radius:13px;background:#faf9ff}
+.template-download h3{margin:0 0 12px;font-size:14px;color:#38315f}
+.template-download-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.template-download-button{display:flex;align-items:center;gap:8px;padding:11px 9px;border:1px solid #d2def3;border-radius:10px;color:#28599d;background:#fff;font-size:12px;font-weight:700;line-height:1.4;min-width:0}
+.template-download-button small{display:block;font-size:10px;color:#747b91;font-weight:400;margin-top:3px}
+.template-download-button:hover{background:#edf4ff;text-decoration:none;border-color:#9ab4de}
+.template-download-button:focus-visible{outline:3px solid #8c78ed;outline-offset:3px}
+.template-download-button.template-excel{color:#23774f;border-color:#c5e2d0}
+.template-download-button.template-excel:hover{background:#edfaf1;border-color:#83bd9b}
+.template-file-symbol{display:grid;place-items:center;flex:0 0 24px;height:29px;border-radius:5px;background:#2f61a7;color:#fff;font-family:Arial,sans-serif;font-size:15px}
+.template-excel .template-file-symbol{background:#278454}
+.template-download-button[aria-disabled=true]{opacity:.55;cursor:wait;pointer-events:none}
+.template-download-note,.template-download-guide{font-size:11px;line-height:1.75;color:#666780}
+.template-download-note{margin:10px 0 7px}
+.template-download-guide summary{cursor:pointer;color:#5b47c5;font-weight:600}
+.template-download-guide ul{padding-left:17px;margin:8px 0 0}
+.template-download-guide li+li{margin-top:5px}
+.template-download-status{font-size:11px;line-height:1.6;margin:7px 0 0;color:#237b54;overflow-wrap:anywhere}
+.template-download-status:empty{display:none}
+.template-download-status.error{color:#b33240}
+@media(max-width:370px){.template-download-actions{grid-template-columns:1fr}}
+/* END_SCHOOL_IMPORT_TEMPLATE_DOWNLOAD_V1 */

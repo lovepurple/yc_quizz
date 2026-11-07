@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "original": {
+    "school-api.js": "452a08236b7ea03733a20c1b13785ee4c67e210678918e713d1a25ee4d2a629a",
+    "student.js": "ef825facd6af0c739d7917e6e0259560fca9dfa92cfc4b95b0fbe1188f85c1ae",
+    "student.html": "2100a2dd2321f41371d08bc2969522ea15fe8b136e9e12cc485e198ac25cd01c",
+    "admin.js": "0cfd502b71e8161a87b1caf12e06507758d8233a40b465188da356b41b355677",
+    "admin.html": "9cb0b74c831be9aecacf6ba9ffede5167744a57fad2db1740b38b2ac510457ef"
+  },
+  "modified": {
+    "school-api.js": "cbaf994871a8d4c7dad9a0eb51806fadac2dfb1a777700a5430afb4f007a2cb0",
+    "student.js": "114bfc75d505cbed3e739cd924859d5a2d18f9182b3c4880b9149980d06fba2d",
+    "student.html": "93ad4439dc4f4f569ad5ae8d0327dfc86fb7470ef8b94523dee8af5e466af7ff",
+    "admin.js": "f3fc972b25e0354ea26dd9b7b1a9179cc25d14a06e31ece638b0441d692caac9",
+    "admin.html": "c4726e0144cc57078b694ec1578e57ce1a70a2c418bc22e45ab83132d07d8b38"
+  }
+}

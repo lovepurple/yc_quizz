@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "installedAt": "2026-10-10T04:28:01.465Z",
+  "files": [
+    {
+      "file": "/quizzle/data/school-roles-package/teacher-roles.js",
+      "before": "fbd466f8897c9d835b3ea732b573dae21a4dbb37f7c3d69477ffa3aa9763bf85",
+      "after": "2f010dd45d737c2df88b962d5662e054bb53e40e857aaa8964da7ea1443ab184",
+      "backup": "original-0"
+    },
+    {
+      "file": "/quizzle/data/school-class-package/class-pages.js",
+      "before": "2d866c256bc3c5079ddc700ac75e9a6485bbed2f5f26d4a1882f4ef604db2fd7",
+      "after": "622e3873cedc3dea88885cbdd8e6c741c63a3460e80c3db7407b742dad66fa43",
+      "backup": "original-1"
+    },
+    {
+      "file": "/quizzle/data/school-package/admin.html",
+      "before": "965e1eca61ed90f9b3dc441cc8e6342cf57f84c4ca1726789d6da9fefa5d11e6",
+      "after": "0adc2613ff94f704e0bb2b5d300ad497cbc1716d568215482d96a30cc4de538c",
+      "backup": "original-2"
+    }
+  ]
+}

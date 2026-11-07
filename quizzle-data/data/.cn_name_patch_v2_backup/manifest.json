@@ -1,0 +1,24 @@
+{
+  "kind": "Quizzle-2.6.3-cn-name",
+  "at": "2026-10-09T04:57:52.965Z",
+  "files": [
+    {
+      "target": "server/validations/socket.js",
+      "backup": "file_0.bin",
+      "shaBefore": "8977b2ee7051b908c2c86644cf4c90e653cee51d281188462f1cef5437463039",
+      "shaAfter": "2f798f90006593299d68f525634bed0a5452f7e2f428e290bd6c2d1b9e5104ac"
+    },
+    {
+      "target": "dist/assets/index-oCDt14J_.js",
+      "backup": "file_1.bin",
+      "shaBefore": "44a4a2fbff1fb5c5c553fba24bbb8c83e8a93aa2df9c2429e499fdfd119fb0fb",
+      "shaAfter": "aec483656071e963f8b7ec67a9931d6d346beec1f48da0c496eff77eaa534297"
+    },
+    {
+      "target": "dist/zh-cn.js",
+      "backup": "file_2.bin",
+      "shaBefore": "a10d85b26831288964ecb4da4b9906c9c2eeaac05a17c6f9885a6e4dfe050be1",
+      "shaAfter": "671e5d05dc1da8dccb89af70f67df5f0d02b6e990d20cf69567296a9f616d00e"
+    }
+  ]
+}

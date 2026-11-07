@@ -1,0 +1,412 @@
+/* Quizzle 2.6.3 简体中文离线界面补丁
+ * 仅汉化网页可见的固定界面文字；不上传数据、不修改答题逻辑。
+ * 基于 Quizzle (MIT) 源码中的用户界面文案整理。版本：2026-10-09。
+ */
+(() => {
+  'use strict';
+  const translations = {
+    // 主页与导航
+    'Code eingeben': '输入房间码', 'Code Scannen': '扫描二维码', 'Quiz erstellen': '创建测验',
+    'Raum hosten': '主持测验', 'Admin': '管理后台', 'Abmelden': '退出登录',
+    'Anmelden': '登录', 'Anmeldung erforderlich': '需要登录', 'Anmeldung erforderlich.': '请先登录',
+    'Bitte melde dich mit deinem': '请使用你的', 'Benutzerkonto': '账号', 'an.': '登录。',
+    'Code:': '房间码：', 'mit Code:': '使用房间码：', 'oder': '或者',
+    'Code eingeben...': '输入房间码…', 'Quiz-Code eingeben': '输入测验码',
+    'Ergebnisse einsehen': '查看测验结果', 'Startseite': '首页',
+    'Zurück zur Startseite': '返回首页', 'Impressum': '网站信息', 'Datenschutz': '隐私政策',
+    'Credits': '鸣谢', 'Credits & Attributions': '鸣谢与素材来源',
+    'Zurück': '返回', 'Weiter': '下一步', 'Starten': '开始', 'Schließen': '关闭',
+    'Abbrechen': '取消', 'Abschließen': '完成', 'Speichern': '保存',
+    'Hochladen': '上传', 'Löschen': '删除', 'Entfernen': '移除',
+    'Auswählen...': '请选择…', 'Suchen...': '搜索…', 'Suche...': '搜索…',
+    'Laden...': '加载中…', 'Loading...': '加载中…', 'Bitte warten...': '请稍候…',
+    'Erneut versuchen': '重试', 'Zurücksetzen': '重置', 'Stopp': '停止',
+    'Ja': '是', 'Nein': '否', 'Okay': '确定', 'OK': '确定', 'Nein, danke': '不了，谢谢',
+    'Quiz starten': '开始测验', 'Raum gesperrt': '房间已锁定', 'Raum entsperrt': '房间已解锁',
+    'Warten auf Mitspieler...': '等待同学加入…', 'Verbinden über die Webseite': '通过网页加入',
+    'Verbinde wieder...': '正在重新连接…', 'Verbindung verloren': '连接已断开',
+    'Verbindungsfehler': '连接失败', 'Raum nicht gefunden': '未找到房间',
+    'Ungültiger Code': '无效的房间码', 'Fehler beim Beitreten': '加入房间失败',
+    'Wähle deinen Charakter': '选择你的角色', 'Charakter auswählen': '选择角色',
+    'Dein Name': '你的姓名', 'Benutzername': '用户名', 'Passwort': '密码',
+    'Antwort senden': '提交答案', 'Antwort absenden': '提交答案', 'Deine Antwort': '你的答案',
+    'Deine abgegebene Antwort': '你提交的答案', 'Antwort eingeben': '输入答案',
+    'Geben Sie Ihre Antwort ein...': '请输入答案…',
+    'Keine Antwort abgegeben': '没有提交答案', 'Warten auf Frage...': '等待题目…',
+    'Richtige Antwort': '正确答案', 'Richtige Antworten': '正确答案',
+    'Richtig:': '正确：', 'Antwort:': '答案：', 'Wahr': '正确', 'Falsch': '错误',
+    'Wahr oder Falsch': '判断题', 'Doppelte Punkte!': '双倍积分！',
+    'Diese Frage bringt die doppelte Punktzahl!': '本题得分翻倍！',
+    'Scoreboard anzeigen': '显示排行榜', 'Nächste Frage': '下一题',
+    'Frage überspringen': '跳过本题', 'Quiz abgeschlossen! 🎉': '测验完成！🎉',
+    'Quiz abgeschlossen!': '测验完成！', 'Richtige in Folge': '连续答对',
+    'Teilweise richtig!': '部分正确！', 'Weiter so!': '继续加油！',
+    'Fast richtig!': '非常接近！', 'Nicht ganz!': '还差一点！', 'Du führst!': '你目前领先！',
+    'Wahr/Falsch': '判断题', 'Antworten': '答案', 'Fragen': '题目', 'Schüler': '学生',
+    'Schüler:': '学生：', 'Fragen:': '题目：',
+    'Min.': '最小值', 'Max.': '最大值', 'Richtiger Wert': '正确数值',
+    'Abweichung:': '偏差：', 'Ihre Reihenfolge:': '你的排序：',
+    'Richtige Reihenfolge:': '正确顺序：', 'Richtige Reihenfolge': '正确顺序',
+    'Keine Reihenfolge abgegeben': '未提交排序',
+    'Spieler bewegen den Schieberegler...': '同学们正在调节滑块…',
+    'Spieler geben ihre Antworten ein...': '同学们正在输入答案…',
+    'Spieler sortieren ihre Antworten...': '同学们正在排序…',
+    'Sortieraufgabe wird geladen...': '正在加载排序题…',
+    'Antworten sind noch nicht bereit!': '答案尚未准备好！',
+    'Keine Antworten verfügbar': '暂无可用答案',
+    'Reihenfolge-Fragen benötigen die Antwortinhalte.': '排序题需要提供答案内容。',
+    'Bitte verwenden Sie den Übungsmodus für Reihenfolge-Fragen.': '排序题请使用自主练习模式。',
+    'Fehler beim Anzeigen der Frage': '显示题目失败',
+    'Fehler beim Senden der Antwort': '提交答案失败',
+    'Fehler beim Senden der Antwort.': '提交答案失败。',
+    'Bitte wähle zuerst einen Namen und Charakter.': '请先填写姓名并选择角色。',
+    'Erfolgreich wieder verbunden!': '重新连接成功！',
+    'Sitzung abgelaufen. Zurück zur Startseite...': '会话已过期，正在返回首页…',
+    'Du wurdest aus dem Raum entfernt. Zurück zur Startseite...': '你已被移出房间，正在返回首页…',
+    'Der Host hat das Spiel verlassen. Zurück zur Startseite...': '主持人已退出，正在返回首页…',
+    'Dieses Übungsquiz ist abgelaufen.': '这份自主练习已过期。',
+    'Fehler beim Laden des Übungsquiz.': '加载自主练习失败。',
+    // 首次安装与登录
+    'Willkommen bei Quizzle!': '欢迎使用 Quizzle！',
+    'Richte dein Quizzle in wenigen Schritten ein. Erstelle zunächst einen': '只需几个步骤即可完成设置。请先创建',
+    'Administrator-Account': '管理员账号', ', um alle Einstellungen zu verwalten.': '，用于管理系统。',
+    'Einrichtung starten': '开始设置', 'Benutzername wählen': '设置用户名',
+    'Wähle einen Benutzernamen für den Administrator-Account.': '请为管理员设置用户名。',
+    'Passwort festlegen': '设置密码', 'Wähle ein sicheres Passwort für': '请为此账号设置安全密码：',
+    'Passwort bestätigen': '确认密码', 'Mindestens 3 Zeichen': '至少输入3个字符',
+    'Maximal 32 Zeichen': '最多输入32个字符',
+    'Benutzername ist erforderlich': '请输入用户名',
+    'Passwort ist erforderlich': '请输入密码',
+    'Mindestens 6 Zeichen': '至少输入6个字符',
+    'Nur Buchstaben, Zahlen, Punkte, Bindestriche und Unterstriche': '仅支持字母、数字、点、连字符和下划线',
+    'Passwörter stimmen nicht überein': '两次输入的密码不一致',
+    'Bitte Passwort bestätigen': '请再次输入密码',
+    'Setup abgeschlossen! Willkommen bei Quizzle.': '设置完成！欢迎使用 Quizzle。',
+    'Setup fehlgeschlagen': '初始化失败',
+    // 创建测验、题库与问题类型
+    'Quiz-Titel eingeben': '输入测验标题', 'Fragentitel eingeben': '输入题目内容',
+    'Kein Fragentitel': '尚未填写题目', 'Neue Antwort hinzufügen...': '添加新的答案选项…',
+    'Quiz-Einstellungen': '测验设置', 'Fragen-Einstellungen': '题目设置',
+    'Über das Quiz': '测验信息', 'Beschreibung': '描述',
+    'Worum geht es in diesem Quiz?': '这份测验主要考查什么内容？',
+    'Spielablauf': '答题流程', 'Fragen mischen': '随机题目顺序',
+    'Antworten mischen': '随机答案顺序', 'Standard-Zeitlimit': '默认答题时间',
+    'Zeitlimit': '答题时限', 'Punktevergabe': '计分方式', 'Punkteverteilung': '得分方式',
+    'Antwort-Marge': '答案容差', 'Marge:': '容差：',
+    'Richtige Antwort': '正确答案', 'Schwierigkeit': '难度',
+    'Keine Angabe': '不设置', 'Keine Schwierigkeit angegeben': '未指定难度',
+    'Einfach': '简单', 'Mittel': '中等', 'Schwer': '困难',
+    'Leicht': '简单', 'Normal': '普通', 'Schwierig': '困难',
+    'Für Einsteiger': '适合初学者', 'Fortgeschrittene Fragen': '进阶题',
+    'Anspruchsvolle Fragen': '挑战题',
+    'Unbegrenzt': '不限时', 'Kein Zeitlimit': '不限制答题时间',
+    'Standard': '默认', 'Standard-Zeitlimit': '默认答题时间',
+    'Aus Quiz-Einstellungen': '使用测验默认设置',
+    '30 Sekunden': '30秒', '60 Sekunden': '60秒', '2 Minuten': '2分钟',
+    '15 Sekunden': '15秒', 'Schnelle Fragen': '快速答题',
+    'Sehr schnelle Fragen': '极速答题', 'Eine Minute pro Frage': '每题1分钟',
+    'Mehr Zeit zum Nachdenken': '提供更多思考时间',
+    'Normale Punkteverteilung': '正常计分', 'Keine Punkte': '不计分',
+    'Für diese Frage gibt es keine Punkte': '本题不计入总分',
+    'Doppelte Punkte': '双倍积分', 'Diese Frage bringt doppelte Punkte': '本题积分翻倍',
+    'Schnellere Antworten = mehr Punkte': '回答越快，得分越高',
+    'Feste Punkte pro richtiger Antwort': '答对即获得固定积分',
+    'Nur die exakte Antwort akzeptieren': '只接受完全正确的答案',
+    'Niedrige Fehlertoleranz': '较小容差', 'Mittlere Fehlertoleranz': '中等容差',
+    'Hohe Fehlertoleranz': '较大容差', 'Nächste Antwort erhält mehr Punkte': '后续答案获得更多积分',
+    'Groß-/Kleinschreibung wird ignoriert': '忽略英文字母大小写',
+    'Füge mindestens eine akzeptierte Antwort hinzu': '请至少添加一个可接受答案',
+    'Füge mindestens zwei Antworten hinzu': '请至少添加两个答案',
+    'Sortiere die Antworten in die richtige Reihenfolge': '将答案按正确顺序排列',
+    'Quiz erfolgreich importiert!': '测验导入成功！',
+    'Quiz erfolgreich geladen!': '测验加载成功！',
+    'Ungültiges Dateiformat.': '文件格式不正确。',
+    'Als Live-Quiz hochladen': '发布为实时竞答',
+    'Als Übungsquiz veröffentlichen': '发布为自主练习',
+    'Übungsquiz erfolgreich erstellt!': '自主练习创建成功！',
+    'Fehler beim Erstellen des Übungsquiz.': '创建自主练习失败。',
+    'Quiz erfolgreich hochgeladen.': '测验上传成功。',
+    'Fehler beim Hochladen des Quiz.': '测验上传失败。',
+    'Quiz-ID:': '测验编号：', 'Übungscode:': '练习码：',
+    'Quiz-Titel darf nicht leer sein.': '测验标题不能为空。',
+    'Quiz aus Datei importieren': '从文件导入测验',
+    'Quiz als Datei herunterladen': '下载测验文件',
+    'Quiz zurücksetzen': '清空测验',
+    'Rückgängig (Strg+Z)': '撤销（Ctrl+Z）',
+    'Wiederholen (Strg+Shift+Z)': '重做（Ctrl+Shift+Z）',
+    'Datei hochladen': '上传文件', 'Datei hier ablegen': '把文件拖到这里',
+    'Datei hierher ziehen oder klicken': '拖入文件或点击选择',
+    'Nur Bilddateien sind erlaubt.': '只能上传图片文件。',
+    'Bild wählen': '选择图片', 'Klicken zum Entfernen': '点击移除',
+    'Medien': '媒体素材', 'Medien einfügen': '插入素材',
+    'Hintergrund wählen': '选择背景', 'Hintergrund ändern': '更换背景',
+    'Beliebte Bilder': '热门图片', 'Beliebte GIFs': '热门动图',
+    'Fehler bei der Suche.': '搜索失败。',
+    'Fehler beim Laden des Mediums.': '加载素材失败。',
+    'Keine Ergebnisse gefunden.': '没有搜索结果。',
+    'Dialog schließen': '关闭窗口',
+    'Quiz-ID (z. B. JWTIOI)': '测验编号（例如 JWTIOI）',
+    'Quiz-ID nicht gefunden.': '未找到测验编号。',
+    'Ungültiges Format': '格式不正确', 'Enthält ungültige Zeichen': '包含无效字符',
+    'Dieses Feld ist erforderlich': '此项为必填项',
+    'Titel darf nicht leer sein': '标题不能为空',
+    'Frage darf nicht leer sein': '题目不能为空',
+    'Antwort darf nicht leer sein': '答案不能为空',
+    'Keine Punkte': '不计分', 'Wahr oder Falsch': '判断题',
+    'Text Eingabe': '填空题',
+    'Spieler wählen aus vorgegebenen Antwortmöglichkeiten': '从备选答案中选择',
+    'Spieler wählen zwischen Wahr und Falsch': '判断陈述是否正确',
+    'Spieler geben ihre Antwort als Text ein': '输入文字答案',
+    'Spieler sortieren Antworten in die richtige Reihenfolge': '将答案按正确顺序排列',
+    'Spieler schätzen einen Wert auf einem Schieberegler': '拖动滑块估计数值',
+    // 后台与媒体配置
+    'KI-Konfiguration': 'AI 配置', 'KI-Einstellungen': 'AI 设置',
+    'Konfiguriere den KI-Anbieter für die automatische Quiz-Generierung.': '设置用于自动生成测验的 AI 服务。',
+    'Anbieter': '服务商', 'API-Schlüssel': 'API 密钥', 'Modell': '模型',
+    'Basis-URL': '基础地址', 'Anbieter wählen...': '选择服务商…',
+    'Modell wählen...': '选择模型…', 'Modelle werden geladen...': '正在加载模型…',
+    'KI-Einstellungen gespeichert.': 'AI 设置已保存。',
+    'Konfiguriere API-Schlüssel für die Bildersuche im Quiz-Editor. Beide Dienste sind kostenlos.': '设置题目编辑器中用于搜索图片的 API 密钥。',
+    'Medien-Einstellungen gespeichert.': '媒体设置已保存。',
+    'Branding': '品牌设置', 'Passe das Erscheinungsbild deiner Quizzle-Instanz an.': '自定义 Quizzle 的外观。',
+    'Logo': '标志', 'Banner': '横幅', 'Name': '名称',
+    'Primärfarbe': '主题颜色', 'Impressum-URL': '网站信息链接',
+    'Datenschutz-URL': '隐私政策链接',
+    'Branding gespeichert. Änderungen werden nach einem Neustart wirksam.': '品牌设置已保存，重启后生效。',
+    'Bild ist zu groß (max. 5 MB).': '图片过大，最大支持 5 MB。',
+    'Fehler beim Hochladen.': '上传失败。',
+    'Fehler beim Speichern.': '保存失败。',
+    'Fehler beim Zurücksetzen.': '重置失败。',
+    'Benutzerverwaltung': '用户管理',
+    'Verwalte Benutzerkonten und Berechtigungen.': '管理系统用户及权限。',
+    'Neuer Benutzer': '新增用户', 'Neuen Benutzer erstellen': '创建新用户',
+    'Rolle wechseln': '更改角色', 'Passwort zurücksetzen': '重置密码',
+    'Neues Passwort (min. 6 Zeichen)': '新密码（至少6位）',
+    'Rolle aktualisiert.': '角色更新成功。',
+    'Alle Felder sind erforderlich.': '请填写所有必填项。',
+    'Passwort muss mindestens 6 Zeichen lang sein.': '密码长度不得少于6位。',
+    'Passwort zurückgesetzt.': '密码已重置。',
+    'Fehler beim Löschen.': '删除失败。', 'Fehler beim Aktualisieren.': '更新失败。',
+    'Benutzer konnten nicht geladen werden.': '加载用户失败。',
+    'Fehler beim Erstellen.': '创建失败。',
+    'Du': '你', 'Lehrer': '教师', 'Administrator': '管理员', 'teacher': 'teacher',
+    // 分析报告（含按题统计和学生明细）
+    'Übersicht': '统计概览', 'Schüler': '学生', 'Fragen': '题目',
+    'Teilnehmer': '参与人数', 'Ø Genauigkeit': '平均正确率',
+    'Ø Punkte': '平均积分', 'Übungsquiz Ergebnisse': '自主练习成绩',
+    'Ergebnisse werden geladen...': '正在加载成绩…',
+    'Keine Ergebnisse gefunden': '暂无成绩记录',
+    'Versuche': '作答次数', 'Durchschnitt': '平均值',
+    'Beste Punktzahl': '最高分', 'Verbleiben': '剩余',
+    'Nach Schülern gruppiert': '按学生分组',
+    'Versuche:': '作答次数：', 'Beste:': '最高分：',
+    'Durchschnitt:': '平均值：', 'Versuch auswählen:': '选择作答记录：',
+    'Nach Genauigkeit': '按正确率', 'Nach Richtigen': '按正确题数',
+    'Nach Punkten': '按积分', 'Schwierigkeitsverteilung': '题目难度分布',
+    'Keine Probleme erkannt': '暂未发现明显问题',
+    'Die Klasse zeigt gute Leistungen.': '班级整体表现良好。',
+    'Gesamte Punkte': '总得分', 'Richtige Antworten': '正确答案数',
+    'Teilweise richtige Antworten': '部分正确题数',
+    'Falsche Antworten': '错误题数', 'Gesamte beantwortet': '已答题数',
+    'Genauigkeit (%)': '正确率（%）', 'Benötigt Aufmerksamkeit': '需要重点关注',
+    'Durchschnittliche Punktzahl': '平均分', 'Verbesserung nötig': '有待提高',
+    'Schüler Analytics': '学生成绩分析', 'Frage Nr.': '题号',
+    'Frage Titel': '题目内容', 'Frage Typ': '题型',
+    'Gesamte Antworten': '作答总人数', 'Richtige Anzahl': '答对人数',
+    'Teilweise richtige Anzahl': '部分正确人数', 'Falsche Anzahl': '答错人数',
+    'Richtige Prozent (%)': '正确率（%）', 'Benötigt Überprüfung': '需要讲评',
+    'Fragen Analytics': '逐题分析',
+    'Zusammenfassung Statistiken': '统计汇总',
+    'Als Excel herunterladen': '导出 Excel',
+    'Keine Daten zum Exportieren verfügbar': '没有可导出的数据',
+    'Keine Analytics-Daten zum Exportieren verfügbar': '没有可导出的统计数据',
+    'Fehler beim Exportieren der Daten': '导出数据失败',
+    'Fehler beim Laden der Ergebnisse.': '加载成绩失败。',
+    'Keine Analytics-Daten': '暂无统计数据',
+    // AI 生成题目（离线不保证 AI 能用）
+    'KI-Quiz generieren': 'AI 生成测验',
+    'Quiz mit KI generieren': '使用 AI 生成测验',
+    'Generierung abbrechen': '取消生成',
+    'Wähle eine Quelle und lass die KI ein Quiz erstellen': '选择材料来源，让 AI 自动出题',
+    'Thema': '主题', 'PDF-Dokument': 'PDF 文档',
+    'PDF hier ablegen': '将 PDF 拖到这里',
+    'oder klicken zum Auswählen (max. 25 MB)': '或点击选择文件（最大 25 MB）',
+    'Website-URL': '网页地址',
+    'Die Website wird gelesen und als Quelle verwendet.': '将读取网页内容作为出题资料。',
+    'Wikipedia-Artikel': '维基百科文章',
+    'Der Artikeltext wird als Faktenbasis verwendet.': '将文章内容作为出题依据。',
+    'Anzahl Fragen': '题目数量',
+    'Titel & Beschreibung automatisch erstellen': '自动生成标题和描述',
+    'Titel oder Beschreibung sind bereits gesetzt': '标题或描述已经填写',
+    'Die KI füllt Quiz-Titel und Beschreibung aus, bevor die Fragen erstellt werden': 'AI 会先生成标题和描述，再创建题目',
+    'Thema eingeben...': '输入主题…',
+    'Erweiterte Optionen: PDF, URL, Wikipedia': '高级选项：PDF、网页、维基百科',
+    'Fragen aus einem Thema generieren': '根据主题生成题目',
+    'Fragen aus einem PDF-Dokument': '根据 PDF 生成题目',
+    'Fragen aus einer Website': '根据网页生成题目',
+    'Fragen aus einem Wikipedia-Artikel': '根据百科文章生成题目',
+    'KI generiert Fragen...': 'AI 正在生成题目…',
+    'KI erstellt Titel & Beschreibung...': 'AI 正在生成标题和描述…',
+    'Warte auf KI...': '正在等待 AI…',
+    'Fehler bei der Generierung.': '生成失败。',
+    'Fehler bei der KI-Generierung.': 'AI 出题失败。',
+    'Bitte wähle eine PDF-Datei aus.': '请选择 PDF 文件。',
+    'PDF ist zu groß (max 25 MB).': 'PDF 文件过大（最大 25 MB）。',
+    'Bitte gib eine URL ein.': '请输入网页地址。',
+    'Bitte gib einen Suchbegriff ein.': '请输入搜索关键词。',
+    'Keine Textdaten erhalten.': '没有读取到文本内容。',
+    'Quelle konnte nicht geladen werden.': '无法加载素材来源。',
+    'z.B. Die Französische Revolution, Photosynthese, Römische Kaiserzeit...': '例如：网络协议分层、数据分包、算法…',
+    'z.B. Albert Einstein': '例如：计算机网络',
+    'Auto': '自动', 'Anz.': '数量',
+    // 通用错误与数据校验
+    'Wahr/Falsch-Fragen müssen genau zwei Antworten haben.': '判断题必须有两个选项。',
+    'Jede Multiple-Choice-Frage muss mindestens eine richtige Antwort haben.': '每道选择题至少设置一个正确答案。',
+    'Multiple-Choice-Fragen müssen mindestens zwei Antworten haben.': '选择题至少需要两个选项。',
+    'Reihenfolge-Fragen müssen mindestens zwei Antworten haben.': '排序题至少需要两个答案。',
+    'Schieberegler-Fragen müssen eine Konfiguration haben.': '滑块题需要设置正确数值。',
+    'Schieberegler-Fragen müssen genau eine Antwort-Konfiguration haben.': '滑块题只能包含一组答案配置。',
+    'Schieberegler-Fragen müssen einen korrekten Wert haben.': '滑块题需要填写正确数值。',
+    'Schieberegler-Fragen müssen einen Min- und Max-Wert haben.': '滑块题需要设置最小值和最大值。',
+    'Der Minimalwert muss kleiner als der Maximalwert sein.': '最小值必须小于最大值。',
+    'Der korrekte Wert muss zwischen Min und Max liegen.': '正确数值应处于最小值与最大值之间。',
+    'Der Schrittwert muss größer als 0 sein.': '步长必须大于0。',
+    'Text-Fragen müssen mindestens eine akzeptierte Antwort haben.': '填空题至少需要一个可接受答案。',
+    'Fehler beim Lesen der Datei.': '读取文件失败。',
+    'Fehler beim Laden der Ergebnisse': '加载成绩失败',
+    'Übungsquiz nicht gefunden': '未找到自主练习',
+    'Übungsquiz nicht gefunden.': '未找到自主练习。',
+    'Fehler beim Überprüfen des Übungsquiz': '检查自主练习失败',
+    'Quiz erfolgreich geladen!': '测验加载成功！',
+    'Lautstärke': '音量', 'Ton ausschalten': '关闭声音', 'Ton einschalten': '开启声音',
+    'Ansicht wechseln': '切换视图'
+  };
+
+  // 特定数字/人名会变化的界面文案：只匹配完整的系统消息，避免误改学生答案。
+  const rules = [
+    [/^Antwort (\d+)$/, (_, n) => `答案 ${n}`],
+    [/^Frage (\d+)$/, (_, n) => `第 ${n} 题`],
+    [/^Frage (\d+) von (\d+)$/, (_, n, total) => `第 ${n} / ${total} 题`],
+    [/^(\d+) Fragen$/, (_, n) => `${n} 道题`],
+    [/^(\d+) Schüler$/, (_, n) => `${n} 名学生`],
+    [/^(\d+) Teilnehmer$/, (_, n) => `${n} 人参与`],
+    [/^(\d+) richtige Antworten$/, (_, n) => `答对 ${n} 题`],
+    [/^Standard \((.+)\)$/, (_, v) => `默认（${translate(v)}）`],
+    [/^Übungscode: (.+)$/, (_, code) => `练习码：${code}`],
+    [/^Quiz-ID: (.+)$/, (_, code) => `测验编号：${code}`],
+    [/^(\d+) Punkte bis zum nächsten Platz$/, (_, n) => `距离上一名还差 ${n} 分`],
+    [/^(\d+) Plätze nach oben$/, (_, n) => `上升 ${n} 名`],
+    [/^(\d+) Schüler benötigen Hilfe$/, (_, n) => `${n} 名学生需要帮助`],
+    [/^(\d+) schwere Fragen$/, (_, n) => `${n} 道较难的题目`],
+    [/^Frage (\d+): ([\d.]+)%$/, (_, n, p) => `第 ${n} 题：${p}%`],
+    [/^Niedrige Klassenleistung: ([\d.]+)%$/, (_, p) => `班级平均正确率偏低：${p}%`],
+    [/^Gute Klassenleistung: ([\d.]+)%$/, (_, p) => `班级平均正确率较好：${p}%`],
+    [/^(\d+) einfach$/, (_, n) => `${n} 道简单题`],
+    [/^(\d+) mittel$/, (_, n) => `${n} 道中等题`],
+    [/^(\d+) schwer$/, (_, n) => `${n} 道难题`],
+    [/^(\d+) Frage(?:n)? generiert!$/, (_, n) => `已生成 ${n} 道题！`],
+    [/^Mindestens (\d+) Zeichen erforderlich$/, (_, n) => `至少需要 ${n} 个字符`],
+    [/^Maximal (\d+) Zeichen erlaubt$/, (_, n) => `最多允许 ${n} 个字符`],
+    [/^(\d+) Zeichen übrig$/, (_, n) => `还可输入 ${n} 个字符`],
+    [/^Benutzer "(.+)" erstellt\.$/, (_, n) => `已创建用户“${n}”。`],
+    [/^Benutzer "(.+)" gelöscht\.$/, (_, n) => `已删除用户“${n}”。`],
+    [/^Benutzer "(.+)" wirklich löschen\?$/, (_, n) => `确定删除用户“${n}”吗？`],
+    [/^(.+) hat das Spiel verlassen$/, (_, n) => `${n} 已退出测验`],
+    [/^(.+) entfernen$/, (_, n) => `移除 ${n}`],
+    [/^Charakter: (.+)\. Klicken zum Ändern$/, (_, n) => `当前角色：${n}。点击更换`],
+    [/^Quiz darf maximal (\d+) Fragen enthalten\.$/, (_, n) => `一份测验最多允许 ${n} 道题。`],
+    [/^Text-Fragen dürfen maximal (\d+) akzeptierte Antworten haben\.$/, (_, n) => `填空题最多支持 ${n} 个答案。`],
+    [/^Reihenfolge-Fragen dürfen maximal (\d+) Antworten haben\.$/, (_, n) => `排序题最多支持 ${n} 个答案。`],
+    [/^Multiple-Choice-Fragen dürfen maximal (\d+) Antworten haben\.$/, (_, n) => `选择题最多支持 ${n} 个选项。`],
+    [/^Fragen dürfen maximal (\d+) Zeichen lang sein\.$/, (_, n) => `题目文字最多 ${n} 个字符。`],
+    [/^Übungsquiz (.+)$/, (_, rest) => `自主练习 ${translate(rest)}`]
+  ];
+
+  // 显式跳过用户填写的内容、编辑区和代码块。
+  const excluded = 'script,style,textarea,pre,code,[contenteditable="true"],[data-zh-no-translate]';
+  const ATTRS = ['placeholder','title','aria-label','alt','data-tooltip'];
+  function translate(s) {
+    if (!s || typeof s !== 'string') return s;
+    const trimmed = s.trim();
+    if (!trimmed) return s;
+    let result = Object.prototype.hasOwnProperty.call(translations, trimmed) ? translations[trimmed] : null;
+    if (result == null) {
+      for (const [pattern, action] of rules) {
+        if (pattern.test(trimmed)) { result = trimmed.replace(pattern, (...args) => action(...args)); break; }
+      }
+    }
+    if (result == null || result === trimmed) return s;
+    return s.slice(0, s.length - s.trimStart().length) + result + s.slice(s.trimEnd().length);
+  }
+  function translateElement(el) {
+    if (!(el instanceof Element) || el.closest(excluded)) return;
+    for (const attr of ATTRS) {
+      if (el.hasAttribute(attr)) {
+        const before = el.getAttribute(attr);
+        const after = translate(before);
+        if (after !== before) el.setAttribute(attr, after);
+      }
+    }
+    if (el instanceof HTMLInputElement && /^(button|submit|reset)$/.test(el.type)) {
+      const after = translate(el.value);
+      if (after !== el.value) el.value = after;
+    }
+  }
+  function scan(root) {
+    if (!root) return;
+    if (root.nodeType === Node.TEXT_NODE) {
+      if (!root.parentElement?.closest(excluded)) {
+        const result = translate(root.nodeValue);
+        if (result !== root.nodeValue) root.nodeValue = result;
+      }
+      return;
+    }
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+    if (root.nodeType === Node.ELEMENT_NODE) translateElement(root);
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT);
+    let node;
+    while ((node = w.nextNode())) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (!node.parentElement?.closest(excluded)) {
+          const result = translate(node.nodeValue);
+          if (result !== node.nodeValue) node.nodeValue = result;
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        translateElement(node);
+      }
+    }
+  }
+  let running = false;
+  const pending = new Set();
+  function flush() {
+    running = false;
+    const nodes = [...pending]; pending.clear();
+    for (const node of nodes) if (node.isConnected || node.nodeType === Node.DOCUMENT_NODE) scan(node);
+  }
+  function enqueue(n) {
+    if (!n) return;
+    pending.add(n);
+    if (!running) { running = true; queueMicrotask(flush); }
+  }
+  function initialize() {
+    document.documentElement.lang = 'zh-CN';
+    document.title = 'Quizzle · 中文课堂测验';
+    const css = document.createElement('style');
+    css.textContent = ':root,body,button,input,select,textarea{font-family:Inter,"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif!important}';
+    document.head.appendChild(css);
+    enqueue(document.body);
+    const observer = new MutationObserver(mutations => {
+      for (const m of mutations) {
+        if (m.type === 'characterData') enqueue(m.target);
+        else if (m.type === 'attributes') enqueue(m.target);
+        else for (const added of m.addedNodes) enqueue(added);
+      }
+    });
+    observer.observe(document.body, {subtree:true, childList:true, characterData:true, attributes:true, attributeFilter:ATTRS});
+    console.info('[Quizzle 中文] 离线界面汉化补丁已启用（2.6.3）');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, {once:true});
+  else initialize();
+  // 用于不启动浏览器时检查文案映射的纯函数（不包含业务逻辑）。
+  if (typeof module !== 'undefined' && module.exports) module.exports = {translate};
+})();

@@ -1,0 +1,17 @@
+{
+  "files": [
+    "/quizzle/server/index.js",
+    "/quizzle/data/school-package/admin.html",
+    "/quizzle/data/school-package/admin.js"
+  ],
+  "original": [
+    "a917150272b272aca8873a50aa3f33beb43b4ec0388ce5cef22e1169e43a5e42",
+    "c4726e0144cc57078b694ec1578e57ce1a70a2c418bc22e45ab83132d07d8b38",
+    "f3fc972b25e0354ea26dd9b7b1a9179cc25d14a06e31ece638b0441d692caac9"
+  ],
+  "modified": [
+    "02cf55de39a5d57653513ea78952d6384cb02be2a56026ad098a2ad39d42634e",
+    "2380233ad448672b6f85f736ef5ca08efd37f8220953d97d63ab14e9a5e6f135",
+    "9b7f5dfdc1d5b954137a7eb592edcb6699beaae90f4c18bf458c99a8ef0c3cc9"
+  ]
+}

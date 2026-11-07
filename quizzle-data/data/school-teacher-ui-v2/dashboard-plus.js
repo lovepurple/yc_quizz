@@ -1,0 +1,60 @@
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const api=async(p,method='GET',body)=>{
+ const response=await fetch('/api/school'+p,{method,credentials:'same-origin',cache:'no-store',headers:method==='GET'?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});
+ const obj=await response.json().catch(()=>({}));if(!response.ok)throw Error(obj.message||'服务返回 '+response.status);return obj;
+};
+const e=(tag,txt)=>{const o=document.createElement(tag);if(txt!==undefined)o.textContent=txt;return o;};
+const css=`.schoolux-panel{margin:18px 0 20px;background:#fff;border:1px solid #e1def3;border-radius:18px;padding:20px 24px;box-shadow:0 8px 30px #30275b0b}.schoolux-panel h2{margin:0 0 8px;font-size:20px;color:#26213a}.schoolux-panel p{margin:6px 0 12px;color:#6c6984}.schoolux-chips{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 4px}.schoolux-chip{display:inline-flex;align-items:center;gap:5px;border:1px solid #cfc7fa;background:#f5f2ff;color:#4d37ab;padding:8px 12px;border-radius:99px;font-size:14px}.schoolux-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.schoolux-form label{display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600}.schoolux-form input,.schoolux-form select{width:100%;box-sizing:border-box;min-width:0}.schoolux-form .schoolux-actions{grid-column:1/-1;display:flex;align-items:center;gap:12px}.schoolux-note{font-size:13px;color:#726b85}.schoolux-result{font-size:14px;color:#4531ab}.schoolux-warning{color:#ac3434!important}.schoolux-muted{color:#766b85;font-size:13px}@media(max-width:700px){.schoolux-form{grid-template-columns:1fr}.schoolux-panel{padding:16px}}`;
+const style=e('style');style.textContent=css;document.head.append(style);
+async function setup(){
+ const content=$('content');const csv=$('csv');if(!content||!csv)return;
+ let scope,classes;
+ try{[scope,classes]=await Promise.all([api('/admin/me-scope'),api('/admin/classes/access')]);}
+ catch(err){console.warn('[school teacher UX]',err);return;}
+ const allowed=(classes.classes||[]).filter(x=>x.active!==false).sort((a,b)=>String(a.stage||'').localeCompare(String(b.stage||''),'zh-CN')||String(a.grade||'').localeCompare(String(b.grade||''),'zh-CN')||a.name.localeCompare(b.name,'zh-CN',{numeric:true}));
+ const overview=e('section');overview.className='schoolux-panel';overview.id='schoolux-overview';
+ const title=e('h2',scope.isAdmin?'🏫 全校班级概览':'🏫 我的任教班级');overview.append(title);
+ overview.append(e('p',scope.isAdmin?'你目前使用的是超级管理员账号，可以管理全校班级和教师。':'教师账号：'+scope.username+' · 已授权 '+(scope.classes||[]).length+' 个班级。仅能管理下方任教班级的学生与任务。'));
+ const chips=e('div');chips.className='schoolux-chips';
+ for(const c of allowed){const path=[c.stage,c.grade,c.name].filter(Boolean).join(' / ');const tag=e('span',path+' · '+c.studentCount+'人');tag.className='schoolux-chip';chips.append(tag);}
+ if(!allowed.length){const msg=e('p','目前没有可管理的班级，请联系超级管理员分配任教班级。');msg.className='schoolux-warning';overview.append(msg);}else overview.append(chips);
+ if(scope.isAdmin){const a=e('a','管理学校班级及教师分班 →');a.href='/school/classes';a.style='display:inline-block;margin-top:12px;color:#6042d9;font-weight:600';overview.append(a);}
+ const first=content.querySelector('.section-head');if(first)first.insertAdjacentElement('afterend',overview);else content.prepend(overview);
+ const manual=e('section');manual.id='schoolux-manual';manual.className='schoolux-panel';
+ manual.append(e('h2','＋ 手动新增学生账号'));
+ manual.append(e('p','无需制作CSV文件。填写一名学生的信息并选择所属班级即可；下方原有 CSV 文件批量导入继续保留。'));
+ const form=e('form');form.className='schoolux-form';form.autocomplete='off';
+ function field(labelText,id,type,attr={}){const label=e('label',labelText),input=e('input');input.id=id;input.name=id;input.type=type;input.required=true;Object.assign(input,attr);label.append(input);form.append(label);return input;}
+ const user=field('学生账号 / 学号','schoolux-username','text',{minLength:4,maxLength:32,placeholder:'例如 CCZ20210612'});
+ const full=field('学生姓名','schoolux-name','text',{maxLength:40,placeholder:'例如 张三'});
+ const pass=field('初始密码（不少于8位）','schoolux-password','password',{minLength:8,maxLength:128,placeholder:'使用学校统一下发的密码'});
+ const clLabel=e('label','所属班级（只能选择已建班级）');const select=e('select');select.id='schoolux-class';select.required=true;
+ const placeholder=e('option','请选择班级');placeholder.value='';select.append(placeholder);
+ for(const cl of allowed){const op=e('option',[cl.stage,cl.grade,cl.name].filter(Boolean).join(' / '));op.value=cl.name;select.append(op);}
+ clLabel.append(select);form.append(clLabel);
+ const footer=e('div');footer.className='schoolux-actions';const submit=e('button','创建学生账号');submit.type='submit';submit.className='primary';submit.disabled=!allowed.length;
+ const result=e('span');result.className='schoolux-result';result.setAttribute('role','status');footer.append(submit,result);form.append(footer);manual.append(form);
+ const hint=e('div','账号必须为4—32位英文字母、数字、下划线或短横线；相同账号不会覆盖原资料。教师只能给自己任教的班级添加学生。');hint.className='schoolux-note';manual.append(hint);
+ form.addEventListener('submit',async event=>{
+  event.preventDefault();if(submit.disabled)return;
+  const username=user.value.trim(),name=full.value.trim(),password=pass.value,className=select.value;
+  if(!/^[A-Za-z0-9_-]{4,32}$/.test(username)){result.textContent='账号格式不正确';return;}
+  if(password.length<8||password.length>128){result.textContent='初始密码至少8位';return;}
+  if(!allowed.some(c=>c.name===className)){result.textContent='请选择有权限的已创建班级';return;}
+  submit.disabled=true;result.textContent='正在创建…';
+  try{
+   const res=await api('/admin/import','POST',{rows:[{username,password,name,className}]});
+   if(res.imported===1){result.textContent='创建成功：'+name+'（'+className+'）';form.reset();
+    if(typeof window.schooluxReloadAccounts==='function')window.schooluxReloadAccounts();
+    // Existing module binds page state privately; its Refresh button is the supported public UI hook.
+    const reload=$('reloadBtn');if(reload)reload.click();
+   }else if(res.skipped){result.textContent='这个账号已经存在，未重复创建';}
+   else result.textContent=(res.invalid||[]).map(x=>x.reason).join('；')||'创建失败，请检查填写内容';
+  }catch(err){result.textContent='创建失败：'+err.message;}
+  finally{submit.disabled=false;}
+ });
+ const csvCard=csv.closest('.card');if(csvCard&&csvCard.parentNode)csvCard.parentNode.insertBefore(manual,csvCard);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setup().catch(console.error));else setup().catch(console.error);
+})();

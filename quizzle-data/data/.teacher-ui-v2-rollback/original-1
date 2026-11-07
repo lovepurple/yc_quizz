@@ -1,0 +1,6 @@
+'use strict';
+const path=require('path');module.exports=function(express){const r=express.Router(),dir=__dirname;
+r.get('/classes',(_req,res)=>res.sendFile(path.join(dir,'classes.html')));
+r.get('/classes.js',(_req,res)=>res.type('text/javascript; charset=utf-8').sendFile(path.join(dir,'classes.js')));
+r.get('/classes.css',(_req,res)=>res.type('text/css; charset=utf-8').sendFile(path.join(dir,'classes.css')));
+return r;};

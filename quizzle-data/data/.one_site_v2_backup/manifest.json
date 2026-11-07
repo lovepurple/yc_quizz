@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "files": [
+    "/quizzle/server/index.js",
+    "/quizzle/dist/index.html"
+  ],
+  "original": [
+    "02cf55de39a5d57653513ea78952d6384cb02be2a56026ad098a2ad39d42634e",
+    "8408e7d16575d6cb31e8e683e06899ab8276200b80c752c17fb22e7ca0aa68ae"
+  ],
+  "patched": [
+    "c865de56b92bfaaae31d13f0046d227ec5d56c8c3d84077b0c01f2f0d9882291",
+    "ec8f2f47b3c62f2a2af8c1a3cc038f9704309ade99ac9a42a0d42f75991cfb82"
+  ],
+  "created": "2026-10-10T00:38:19.087Z"
+}

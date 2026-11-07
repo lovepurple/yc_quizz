@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "2337aa67-a055-4635-b294-03dec0e0f5e8",
+      "username": "admin",
+      "password": "78161f2e938208880ce3c6617619f842:2b971633e9429db3961a9bf1270a5ccf3e83513c44805f7fbb3fc0253c0b7c152d3aab284953455b2a142b656abcd4c3de47068e6b226143448902a1b4978412",
+      "role": "admin",
+      "createdAt": "2026-10-09T03:55:21.296Z"
+    },
+    {
+      "id": "81abdb63-51c8-4f5e-a922-223364225bc4",
+      "username": "admin1",
+      "password": "815a65a2cc7e885b6ad9051c053e699f:8ecf5061ce7530cd12380120f589b5f84980b897c92ccf80c7464c8a6bc594b648f276e33885bda9621468b687810924697b6bc7131bccf68ff8172dd43d56fe",
+      "role": "admin",
+      "createdAt": "2026-10-09T04:55:32.839Z"
+    },
+    {
+      "id": "7dda22f5-2421-4bfe-9754-21987d0aae11",
+      "username": "admin2",
+      "password": "347f23958effc9b876634be3765951e8:5618284c2d5459216452e8a9441663dad07942d0287422c7b392b3115ede6fba40a797fb1d9e1702b0462eab582b1243d08c8c9edccd9346a32d9f5c14b3e8b5",
+      "role": "teacher",
+      "createdAt": "2026-10-09T05:37:24.689Z"
+    },
+    {
+      "id": "f897f4e3-3c17-4eb0-bdac-133f91215801",
+      "username": "admin3",
+      "password": "2b0925bc53f8211104c1c2061341d4dd:a37215410651cc4426d2193a3ec72b75a0d713b11413883a0e11dbac38ef81e3fd7ccf7bb1e01883babdbb3523ce386b9ff34e0082c71c11d0ab8fa934ea0014",
+      "role": "teacher",
+      "createdAt": "2026-10-09T07:40:30.062Z"
+    },
+    {
+      "id": "0b92dd36-5949-4eeb-906a-0398a4744750",
+      "username": "123",
+      "password": "02a08643decc13de3e2b70bff584d635:04e3120673139039d1948d99b3fec3e3ab3c79ec08afcdab100c9b91891bf7c9f721822c3f87f4f99ce771a493f0b74fda5a90cf0a266155385e6727fecdf0e4",
+      "role": "teacher",
+      "createdAt": "2026-10-10T04:15:49.343Z"
+    },
+    {
+      "id": "7bb1ac8a-a65c-47e2-9866-cf0a441c7764",
+      "username": "19137689986",
+      "password": "8fbc761ac1fb93a59cf5c0798c6f4485:55722b6db2a08058c1c95c6687395f0b840722055746f6b6b506c3855312a3837ae6320cf0af894d387099d316e7e616006c5e47eb6d1d1710335f77361e682a",
+      "role": "teacher",
+      "createdAt": "2026-11-06T02:34:10.982Z"
+    }
+  ]
+}

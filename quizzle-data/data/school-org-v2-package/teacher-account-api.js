@@ -1,0 +1,16 @@
+'use strict';
+const fs=require('fs'),path=require('path');
+const ROOT=process.env.QUIZZLE_ROOT||'/quizzle',DATA=path.join(ROOT,'data');
+const {validateToken,changePassword,setUserActive,deleteUser}=require(path.join(ROOT,'server','utils','auth'));
+const {extractToken}=require(path.join(ROOT,'server','middleware','auth'));
+const GRANTS=path.join(DATA,'school-accounts','teacher-classes.json'),ASSIGN=path.join(DATA,'school-accounts','assignments.json');
+function read(f,d){try{return JSON.parse(fs.readFileSync(f,'utf8'));}catch(e){if(e.code==='ENOENT')return d;throw e;}}
+function write(f,d){fs.mkdirSync(path.dirname(f),{recursive:true});const tmp=f+'.'+Date.now()+'.tmp';fs.writeFileSync(tmp,JSON.stringify(d,null,2),'utf8');fs.renameSync(tmp,f);}
+function fail(res,s,m){return res.status(s).json({message:m});}
+function handler(fn){return(req,res)=>{try{fn(req,res);}catch(e){console.error('[teacher-account-v2]',e);if(!res.headersSent)fail(res,500,'教师账号操作失败');}};}
+function current(req){return validateToken(extractToken(req));}
+module.exports=function(express){const r=express.Router();r.use((req,res,next)=>{if(['POST','PUT','PATCH','DELETE'].includes(req.method)){const origin=req.headers.origin;if(origin){try{if(new URL(origin).host!==req.headers.host)return fail(res,403,'请求来源不符合要求');}catch{return fail(res,403,'请求来源无效');}}if(!req.is('application/json'))return fail(res,415,'请使用JSON请求');}next();});
+ r.post('/change-password',handler((req,res)=>{const u=current(req);if(!u||u.role!=='teacher')return fail(res,401,'教师登录状态无效，请重新登录');if(!u.mustChangePassword)return fail(res,409,'当前账号不需要首次修改密码');const p=String(req.body?.password||'');if(p.length<8||p.length>128)return fail(res,400,'新密码必须为8至128位');const changed=changePassword(u.id,p,false,extractToken(req));if(!changed||changed.error)return fail(res,404,'教师账号不存在');res.json({ok:true,message:'密码修改成功'});}));
+ r.put('/users/:id/status',handler((req,res)=>{const u=current(req);if(!u||u.role!=='admin')return fail(res,403,'只有超级管理员可以操作教师账号');const target=read(path.join(DATA,'users.json'),{users:[]}).users.find(x=>x.id===req.params.id);if(!target||target.role!=='teacher')return fail(res,404,'教师账号不存在');if(typeof req.body?.active!=='boolean')return fail(res,400,'账号状态参数无效');if(!setUserActive(req.params.id,req.body.active))return fail(res,404,'教师账号不存在');res.json({ok:true,active:req.body.active});}));
+ r.delete('/teachers/:id',handler((req,res)=>{const u=current(req);if(!u||u.role!=='admin')return fail(res,403,'只有超级管理员可以删除教师账号');if(u.id===req.params.id)return fail(res,400,'不能删除当前登录账号');const users=read(path.join(DATA,'users.json'),{users:[]}).users,target=users.find(x=>x.id===req.params.id);if(!target||target.role!=='teacher')return fail(res,404,'教师账号不存在');const result=deleteUser(req.params.id);if(result.error)return fail(res,400,result.error);const grants=read(GRANTS,{grants:{}});delete grants.grants[req.params.id];write(GRANTS,grants);const tasks=read(ASSIGN,{assignments:[]});let changed=false;for(const a of tasks.assignments||[])if(a.ownerId===req.params.id){a.ownerId=null;a.updatedAt=new Date().toISOString();changed=true;}if(changed)write(ASSIGN,tasks);res.json({ok:true,username:target.username,message:'账号已删除；原测验任务已转回管理员管理，历史成绩保留'});}));
+ return r;};

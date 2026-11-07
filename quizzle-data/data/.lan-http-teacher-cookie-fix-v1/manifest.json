@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "file": "/quizzle/server/routes/auth.js",
+  "originalSha256": "495904729c8daf11c6691022a36f4cd0680b145fcb8241e093f225dd47996c86",
+  "patchedSha256": "d2e63bcd34eeddf8faa95a49623b1688684f2d7559fc6da658c7efbd5b10992c",
+  "changed": "teacher quizzle_token Secure flag only",
+  "installed": "2026-10-09T08:55:46.242Z"
+}

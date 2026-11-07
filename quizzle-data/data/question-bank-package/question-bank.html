@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>育才实验学校 · 智能题库与自动组卷</title>
+<link rel="icon" type="image/png" href="/assets/images/school-icon.png">
+<link rel="stylesheet" href="/school/question-bank/question-bank.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><img src="/assets/images/school-title.png" alt="育才实验学校"><div><b>智能题库与自动组卷</b><small>育才实验学校 · 校园测评中心</small></div></div>
+  <nav><a href="/school/admin">教师管理中心</a><a href="/">测验首页</a></nav>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">QUESTION BANK · WEIGHTED PAPER GENERATOR</div>
+    <div class="hero-line"><div><h1>让每一道题都有来源，让每一份试卷都有依据</h1><p>集中管理教材、学科网、练习册和教师自编试题；按来源比例、年级、学科、难度与知识点自动抽题。</p></div><div class="hero-mark">QB</div></div>
+    <div class="stats" id="bankStats"><div><strong>—</strong><span>题库总量</span></div><div><strong>—</strong><span>教材原题</span></div><div><strong>—</strong><span>学科网</span></div><div><strong>—</strong><span>练习册</span></div><div><strong>—</strong><span>教师题库</span></div></div>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="bank" type="button">① 题库管理</button>
+    <button class="tab" data-tab="import" type="button">② 导入 / 新增试题</button>
+    <button class="tab" data-tab="draw" type="button">③ 自动比例组卷</button>
+  </div>
+
+  <section class="panel active" id="panel-bank">
+    <div class="section-title"><div><h2>题库管理</h2><p>仅显示当前教师有权管理的题目；管理员可以查看全校题库。</p></div><button class="primary" type="button" data-go="import">＋ 导入试题</button></div>
+    <div class="filter-grid">
+      <label class="wide">关键词<input id="filterQ" placeholder="搜索题干、知识点或分类标签"></label>
+      <label>试题来源<select id="filterSource"><option value="">全部来源</option></select></label>
+      <label>年级<select id="filterGrade"><option value="">全部年级</option></select></label>
+      <label>学科<select id="filterSubject"><option value="">全部学科</option></select></label>
+      <label>难度<select id="filterDifficulty"><option value="">全部难度</option><option value="easy">简单</option><option value="medium">中等</option><option value="hard">困难</option></select></label>
+      <label>知识点<select id="filterKnowledge"><option value="">全部知识点</option></select></label>
+      <label>分类标签<select id="filterTag"><option value="">全部标签</option></select></label>
+    </div>
+    <div class="toolbar"><span id="listSummary" class="muted">正在读取题库…</span><div><button class="secondary" id="searchBtn" type="button">筛选</button><button class="ghost" id="resetFilterBtn" type="button">重置</button></div></div>
+    <div class="table-wrap"><table><thead><tr><th>题目</th><th>来源</th><th>年级 / 学科</th><th>难度</th><th>知识点</th><th>分类标签</th><th>分值</th><th>操作</th></tr></thead><tbody id="questionRows"><tr><td colspan="8" class="empty-cell">正在读取题库…</td></tr></tbody></table></div>
+    <div class="pagination"><button class="ghost" id="prevPage" type="button">上一页</button><span id="pageText">第1页</span><button class="ghost" id="nextPage" type="button">下一页</button></div>
+  </section>
+
+  <section class="panel" id="panel-import">
+    <div class="section-title"><div><h2>导入 / 新增试题</h2><p>支持沿用现有 Word、Excel 识别能力；每道题必须具有来源、难度、知识点和分类标签。</p></div><span class="pill">来源必选 · 标签必填</span></div>
+    <div class="import-layout">
+      <div class="card">
+        <h3>试题归档信息</h3>
+        <div class="form-grid">
+          <label>试题来源 <em>*</em><select id="importSource" required><option value="">请选择来源</option><option>教材原题</option><option>学科网</option><option>练习册</option><option>教师题库</option></select></label>
+          <label>年级 <em>*</em><input id="importGrade" required placeholder="例如：七年级"></label>
+          <label>学科 <em>*</em><input id="importSubject" required placeholder="例如：信息科技"></label>
+          <label>默认难度 <em>*</em><select id="importDifficulty" required><option value="medium">中等</option><option value="easy">简单</option><option value="hard">困难</option></select></label>
+          <label class="full">知识点 <em>*</em><input id="importKnowledge" required placeholder="多个知识点用逗号分隔，例如：数据分包,网络协议"></label>
+          <label class="full">分类标签 <em>*</em><input id="importTags" required placeholder="多个标签用逗号分隔，例如：单元测试,核心概念,易错题"></label>
+          <label class="full">适用班级<select id="importClass"><option value="">不限定班级（仅归档到本人题库）</option></select><small>教师只能选择自己任教的班级；管理员可管理全校题目。</small></label>
+        </div>
+        <div class="upload-box"><label for="questionFile" class="upload-label"><span class="upload-icon">↑</span><b>选择 Word / Excel 文件</b><small>支持 .docx / .xlsx，单文件最大9MB</small></label><input id="questionFile" type="file" accept=".docx,.xlsx"><p id="fileName" class="muted">尚未选择文件</p><button class="primary full" id="parseFileBtn" type="button" disabled>识别题目并预览</button></div>
+        <p class="hint">图片、视频和公式沿用现有导题解析能力。识别后先检查题目、选项、答案和分值，再保存到题库；保存不会直接发布给学生。</p>
+      </div>
+      <div class="card preview-card">
+        <div class="section-title compact"><div><h3>导入预览</h3><p id="importSummary">等待选择文件</p></div><div class="inline-actions"><button class="ghost" id="applyDefaultsBtn" type="button">应用默认分类</button><button class="secondary" id="clearImportBtn" type="button">清空</button></div></div>
+        <div id="importPreview" class="preview-list"><div class="empty-state">选择 Word 或 Excel 文件后，识别的题目会显示在这里。</div></div>
+        <div class="save-row"><span id="importMessage" class="message" role="status"></span><button class="primary" id="saveImportBtn" type="button" disabled>保存全部题目到题库</button></div>
+      </div>
+    </div>
+    <div class="card manual-card"><div class="section-title compact"><div><h3>手动新增单题</h3><p>适合补录少量教师自编题。</p></div><button class="secondary" id="manualAddBtn" type="button">＋ 新增单题</button></div></div>
+  </section>
+
+  <section class="panel" id="panel-draw">
+    <div class="section-title"><div><h2>自动比例组卷</h2><p>按四类来源比例分配题量，先预览抽题结果，再发布为考试或自主练习。</p></div><span class="pill">单份试卷最多50题</span></div>
+    <div class="draw-layout">
+      <div class="card draw-config">
+        <h3>① 设置抽题条件</h3>
+        <div class="form-grid">
+          <label>年级<select id="drawGrade"><option value="">全部年级</option></select></label>
+          <label>学科<select id="drawSubject"><option value="">全部学科</option></select></label>
+          <label>难度<select id="drawDifficulty"><option value="">全部难度</option><option value="easy">简单</option><option value="medium">中等</option><option value="hard">困难</option></select></label>
+          <label>适用班级<select id="drawClass"><option value="">不限定班级</option></select></label>
+          <label class="full">抽取题量<input id="drawCount" type="number" min="1" max="50" value="10"><small>系统会按比例取整，采用最大余数法分配，确保题量合计准确。</small></label>
+        </div>
+        <div class="check-filter"><b>知识点筛选 <small>不勾选表示不限制</small></b><div id="drawKnowledge" class="check-cloud"><span class="muted">题库暂无知识点</span></div></div>
+        <div class="check-filter"><b>分类标签筛选 <small>不勾选表示不限制</small></b><div id="drawTags" class="check-cloud"><span class="muted">题库暂无标签</span></div></div>
+        <h3 class="ratio-heading">② 设置试题来源比例</h3>
+        <div class="ratio-grid">
+          <label><span>教材原题</span><div><input id="ratioTextbook" type="number" min="0" max="100" value="10"><b>%</b></div></label>
+          <label><span>学科网</span><div><input id="ratioXkw" type="number" min="0" max="100" value="20"><b>%</b></div></label>
+          <label><span>练习册</span><div><input id="ratioWorkbook" type="number" min="0" max="100" value="35"><b>%</b></div></label>
+          <label><span>教师题库</span><div><input id="ratioTeacher" type="number" min="0" max="100" value="35"><b>%</b></div></label>
+        </div>
+        <div class="ratio-total"><span id="ratioHint">当前比例合计：100%</span><button class="ghost" id="resetRatioBtn" type="button">恢复默认比例</button></div>
+        <button class="primary full draw-btn" id="drawBtn" type="button">✦ 按比例自动抽题</button>
+        <p id="drawMessage" class="message" role="status"></p>
+      </div>
+      <div class="card draw-result">
+        <div class="section-title compact"><div><h3>③ 抽题结果预览</h3><p id="drawSummary">设置条件后，点击自动抽题。</p></div><button class="secondary" id="redrawBtn" type="button" disabled>重新抽题</button></div>
+        <div id="allocationView" class="allocation-view"></div>
+        <div id="drawQuestions" class="draw-list"><div class="empty-state">抽题结果会按题目顺序显示在这里，可逐题更换。</div></div>
+        <div class="publish-box">
+          <h3>④ 发布试卷</h3>
+          <div class="form-grid">
+            <label class="full">试卷名称<input id="publishTitle" maxlength="100" placeholder="例如：七年级信息科技单元测验"></label>
+            <label>发布类型<select id="publishMode"><option value="exam">考试（每个账号完成一次）</option><option value="practice">自主练习（允许重复练习）</option></select></label>
+            <label>发布班级<select id="publishClass"><option value="">请选择班级</option></select></label>
+          </div>
+          <div class="publish-row"><span id="publishMessage" class="message" role="status"></span><button class="primary" id="publishBtn" type="button" disabled>生成测验码并发布</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>题库数据保存在学校现有 Docker 数据卷中。题目来源、知识点和标签用于校内组卷管理，不会改变原有学生答题与成绩统计流程。</footer>
+</main>
+
+<div class="modal" id="editModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="section-title"><div><h2 id="modalTitle">新增题目</h2><p>题干、答案和题库分类信息均需填写。</p></div><button class="icon-btn" type="button" data-close-modal>×</button></div>
+    <form id="editForm">
+      <div class="form-grid">
+        <label class="full">题目内容 <em>*</em><textarea id="editTitle" rows="3" required maxlength="200"></textarea></label>
+        <label>题型<select id="editType"><option value="multiple-choice">选择题（单选/多选）</option><option value="true-false">判断题</option><option value="text">填空题</option></select></label>
+        <label>分值<input id="editPoints" type="number" min="0.01" max="100" step="0.01" value="2" required></label>
+      </div>
+      <div id="editAnswers" class="answer-editor"></div>
+      <div class="form-grid meta-editor">
+        <label>试题来源 <em>*</em><select id="editSource" required><option value="">请选择来源</option><option>教材原题</option><option>学科网</option><option>练习册</option><option>教师题库</option></select></label>
+        <label>年级 <em>*</em><input id="editGrade" required></label>
+        <label>学科 <em>*</em><input id="editSubject" required></label>
+        <label>难度 <em>*</em><select id="editDifficulty"><option value="easy">简单</option><option value="medium" selected>中等</option><option value="hard">困难</option></select></label>
+        <label class="full">知识点 <em>*</em><input id="editKnowledge" required placeholder="多个知识点用逗号分隔"></label>
+        <label class="full">分类标签 <em>*</em><input id="editTags" required placeholder="多个标签用逗号分隔"></label>
+        <label class="full">适用班级<select id="editClass"><option value="">不限定班级</option></select></label>
+      </div>
+      <div class="modal-actions"><span id="editMessage" class="message"></span><button class="secondary" type="button" data-close-modal>取消</button><button class="primary" id="editSaveBtn" type="submit">保存题目</button></div>
+    </form>
+  </div>
+</div>
+<script src="/school/question-bank/question-bank.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "file": "/quizzle/server/index.js",
+      "before": "686e2ecad0fda800e50cf52af72ce4760b51ea173f2dd4783e0f8d88f1f9dede",
+      "after": "4209aca70c9ec48cf127f438e8c1cece42b88a1edf64f4f548d02444effa9453",
+      "orig": "original-0"
+    },
+    {
+      "file": "/quizzle/data/school-roles-package/scope-api.js",
+      "before": "30d9f2c9fc8cea1537f0968dae02c1f7e6fa1a24962bb26828bdf68b2381a48a",
+      "after": "86743bb73a9b8415cd696a2c2620824b31f00d99b097bb11e4942af5433816ff",
+      "orig": "original-1"
+    },
+    {
+      "file": "/quizzle/data/school-package/admin.html",
+      "before": "e48963cf7273afecf5ec2fec00fa03216ccae8bcac47de252a4af4db57ef8c71",
+      "after": "965e1eca61ed90f9b3dc441cc8e6342cf57f84c4ca1726789d6da9fefa5d11e6",
+      "orig": "original-2"
+    }
+  ],
+  "installedAt": "2026-10-10T04:14:14.665Z"
+}

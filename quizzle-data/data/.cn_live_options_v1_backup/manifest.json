@@ -1,0 +1,29 @@
+{
+  "kind": "Quizzle-2.6.3-cn-live-options-v1",
+  "files": [
+    {
+      "rel": "server/socket.js",
+      "backup": "backup_0",
+      "existed": true,
+      "sha": "6594697591b2804d63455adc4fc09d9608a2ec0ccc969474afe12f2aa7c7135e"
+    },
+    {
+      "rel": "server/index.js",
+      "backup": "backup_1",
+      "existed": true,
+      "sha": "7bd0d826962d31143695908d68775b14a2f1087d7f5e04dc75f99a6c36baef5c"
+    },
+    {
+      "rel": "dist/index.html",
+      "backup": "backup_2",
+      "existed": true,
+      "sha": "07bd9ce63a60f890c30727a128474800735e43ba65716dc4d1d3fdf390b16a2f"
+    },
+    {
+      "rel": "dist/cn-live-options.js",
+      "backup": "backup_3",
+      "existed": false,
+      "sha": null
+    }
+  ]
+}

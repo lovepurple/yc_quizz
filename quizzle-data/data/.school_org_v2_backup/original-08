@@ -1,0 +1,8 @@
+'use strict';const path=require('path');
+module.exports=function(express){const r=express.Router();const base=__dirname;
+r.get('/',(_req,res)=>res.sendFile(path.join(base,'student.html')));
+r.get('/admin',(_req,res)=>res.sendFile(path.join(base,'admin.html')));
+r.get('/school.css',(_req,res)=>res.sendFile(path.join(base,'school.css')));
+r.get('/student.js',(_req,res)=>res.sendFile(path.join(base,'student.js')));
+r.get('/admin.js',(_req,res)=>res.sendFile(path.join(base,'admin.js')));
+return r;};

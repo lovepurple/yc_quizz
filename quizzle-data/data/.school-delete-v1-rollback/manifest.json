@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "installedAt": "2026-10-10T04:55:56.463Z",
+  "files": [
+    {
+      "file": "/quizzle/data/school-class-package/class-api.js",
+      "before": "06e92614f6ed1cd8104f827b71c899e6dcfae82da75da68d846ff6bcdf490b45",
+      "after": "f4b25e499d52ae8f2ea120acafa405dd69e836ffa15ddc91d51d151c50eada81",
+      "original": "original-0"
+    },
+    {
+      "file": "/quizzle/data/school-class-package/class-pages.js",
+      "before": "622e3873cedc3dea88885cbdd8e6c741c63a3460e80c3db7407b742dad66fa43",
+      "after": "052a203df239261afb3bac1239e6dfe0ae7eac74d42dcf88fea53f17807997de",
+      "original": "original-1"
+    },
+    {
+      "file": "/quizzle/data/school-package/admin.html",
+      "before": "0adc2613ff94f704e0bb2b5d300ad497cbc1716d568215482d96a30cc4de538c",
+      "after": "10f0516c947f1ce393405fb18e79dab46f0cef93167dc138f7a1c43711cd30a4",
+      "original": "original-2"
+    }
+  ]
+}

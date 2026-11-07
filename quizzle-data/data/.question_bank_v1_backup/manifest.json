@@ -1,0 +1,19 @@
+{
+  "kind": "quizzle-question-bank-v1",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06T03:59:28.867Z",
+  "entries": [
+    {
+      "relative": "server/index.js",
+      "save": "server-index.before.js",
+      "beforeHash": "0046c07fe3929065b7464116c1b50dfbb74532dc3510f35fe99058fd42d2c570",
+      "afterHash": "341ae054bd87d90b4e4f34daaacc4235670499185b3d7f0879198996d55f4cac"
+    },
+    {
+      "relative": "data/school-package/admin.html",
+      "save": "admin.before.html",
+      "beforeHash": "10f0516c947f1ce393405fb18e79dab46f0cef93167dc138f7a1c43711cd30a4",
+      "afterHash": "ad7d92416f765f95bd06d882b49056dbd4dd8a3b4c2ca14da121980825a622e1"
+    }
+  ]
+}

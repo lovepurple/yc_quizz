@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "file": "/quizzle/server/index.js",
+      "original": "c865de56b92bfaaae31d13f0046d227ec5d56c8c3d84077b0c01f2f0d9882291",
+      "modified": "3d93b3c86e366d83790f7ac9958aea319af3b5c242ab2c9f4fcb8c122d8ea619",
+      "save": "backup-0"
+    },
+    {
+      "file": "/quizzle/data/school-package/school-api.js",
+      "original": "cbaf994871a8d4c7dad9a0eb51806fadac2dfb1a777700a5430afb4f007a2cb0",
+      "modified": "0c48a8033eac294260bfe734fafb14fe829c6e82c7f2a38653cf7bdbf0fce64b",
+      "save": "backup-1"
+    },
+    {
+      "file": "/quizzle/data/school-package/student.js",
+      "original": "114bfc75d505cbed3e739cd924859d5a2d18f9182b3c4880b9149980d06fba2d",
+      "modified": "c797c3e3404237efda8daa045c625fdd94b658736f5e0299199e09145f1e93af",
+      "save": "backup-2"
+    },
+    {
+      "file": "/quizzle/data/school-roles-package/teacher-results.js",
+      "original": "ce4aeb1ea962b83c99f82affe056ed4fb791ec42e1434755c444425e91119420",
+      "modified": "3152737147b65c62272be50e1d0ded96a6855fcd834196f120da27b788fc6009",
+      "save": "backup-3"
+    },
+    {
+      "file": "/quizzle/data/school-roles-package/scope-api.js",
+      "original": "19794bba5bf86b611de1c2ef94d89dc309c2d17d8073dff41b69ca330b3dc178",
+      "modified": "30d9f2c9fc8cea1537f0968dae02c1f7e6fa1a24962bb26828bdf68b2381a48a",
+      "save": "backup-4"
+    },
+    {
+      "file": "/quizzle/dist/index.html",
+      "original": "bc45a182676cef51b45b9fe48f149b64f28b081b7331b415f9d976890d6ced6c",
+      "modified": "4c8bf901af56e402d2bbd9e9d3fc5f130a5abc06a4e246810c09375db17f2119",
+      "save": "backup-5"
+    },
+    {
+      "file": "/quizzle/data/school-package/admin.html",
+      "original": "44519972001fb447c782ff06e68fb19a1b6dc5d458fd503e421412f350218c73",
+      "modified": "95680b04033afbf74cbdef634995d30f0253867f4f4e138bd9168a0a507acfaf",
+      "save": "backup-6"
+    }
+  ],
+  "version": 1,
+  "created": "2026-10-10T02:58:59.559Z"
+}

@@ -1,0 +1,85 @@
+const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+const path = require('path');
+const {firstStart} = require("./utils/file");
+const {startCleanupTask} = require("./utils/cleanup");
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server, {path: '/api/ws', cors: {origin: '*'}, connectionStateRecovery: {maxDisconnectionDuration: 2 * 60 * 1000}});
+
+const PORT = process.env.PORT || 6412;
+
+firstStart();
+
+startCleanupTask();
+
+app.use(express.json({limit: '100mb'}));
+
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/admin", require("./routes/admin"));
+app.use("/api/branding", require("./routes/branding"));
+app.use("/api/quizzes", require("./routes/quizzes"));
+/* SCHOOL_RESULTS_GUARD_V1 */
+app.use('/api/practice',require('../data/school-roles-package/legacy-results-guard')(express));
+app.use("/api/practice", require("./routes/practice"));
+app.use("/api/ai", require("./routes/ai"));
+app.use('/api/school-import', require('../data/question-import-package/import-api')(express));
+/* SCHOOL_DOCUMENT_QUESTION_IMPORT_V1 */
+/* SCHOOL_IMPORT_TEMPLATE_SERVER_V1 */
+app.get('/school/import',(req,res)=>{const {extractToken}=require('./middleware/auth'),{validateToken}=require('./utils/auth');const u=validateToken(extractToken(req));if(!u||!['admin','teacher'].includes(u.role))return res.redirect(302,'/?teacher=1');res.set('Cache-Control','no-store');res.sendFile(require('path').join(process.cwd(),'data','question-import-package','import.html'));});
+app.get('/school/import/:asset',(req,res)=>{if(!['import.css','import-ui.js','entry-button.js','download.css','download-ui.js','math-format.js'].includes(req.params.asset))return res.sendStatus(404);res.type(req.params.asset.endsWith('.css')?'css':'js');res.sendFile(require('path').join(process.cwd(),'data','question-import-package',req.params.asset));});
+/* SCHOOL_IMPORT_MEDIA_SERVER_V1 */
+app.get('/school/import/media/:code/:file',(req,res)=>{const path=require('path'),code=String(req.params.code||'').toUpperCase(),file=String(req.params.file||'');if(!/^[A-Z0-9]{4}$/.test(code)||!/^[A-Za-z0-9._-]{1,80}$/.test(file))return res.sendStatus(404);const root=path.join(process.cwd(),'data','practice-quizzes',code,'media'),target=path.join(root,file);if(!target.startsWith(root+path.sep))return res.sendStatus(404);res.set('Cache-Control','no-store');res.sendFile(target,err=>{if(err&&!res.headersSent)res.sendStatus(404);});});
+app.use("/api/media", require("./routes/media"));
+
+/* QUIZZLE_SCHOOL_ACCOUNTS_V1 */
+/* SCHOOL_CLASS_SCOPE_V1 */
+/* SCHOOL_CODE_COMPAT_V1 */
+/* SCHOOL_CLASS_CATALOG_V1 */
+app.use('/api/school',require('../data/school-class-package/class-api')(express));
+app.use('/api/school',require('../data/school-code-compat/school-code-compat')(express));
+app.use('/api/school',require('../data/school-roles-package/scope-api')(express));
+app.use('/api/school', require('../data/school-package/school-api')(express));
+/* QUIZZLE_TEACHER_SINGLE_SITE_V2 */
+app.use('/school',require('../data/one-site-package/teacher-routes')(express));
+app.use('/school',require('../data/school-class-package/class-pages')(express));
+app.use('/school',require('../data/school-roles-package/scope-pages')(express));
+app.use('/school', require('../data/school-package/school-pages')(express));
+
+io.on('connection', (socket) => require("./socket")(io, socket));
+
+
+/* QUIZZLE_CN_LIVE_OPTIONS_V1 */
+// Student-only question choices (without correct-answer flags).
+app.get('/api/cn-live-options', (req, res) => {
+    res.set('Cache-Control', 'no-store');
+    const id = req.get('X-Quizzle-Session');
+    if (!id || typeof id !== 'string' || id.length > 160) return res.sendStatus(401);
+    try {
+        const value = require('./socket').getCnLiveOptions(id);
+        return value ? res.json(value) : res.sendStatus(204);
+    } catch (err) {
+        console.error('CN live options:', err);
+        return res.sendStatus(500);
+    }
+});
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(process.cwd(), 'dist')));
+
+    app.get('*', (req, res) => res.sendFile(path.join(process.cwd(), 'dist', 'index.html')));
+} else {
+    app.get("*", (req, res) => res.status(500).sendFile(path.join(process.cwd(), 'server', 'templates', 'env.html')));
+}
+
+app.use((err, req, res, next) => {
+    if (err) return res.status(400).json({message: err.message});
+
+    next();
+});
+
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

@@ -1,0 +1,28 @@
+{
+  "kind": "quizzle-cn-progress-v1",
+  "version": "2.6.3",
+  "at": "2026-10-09T05:08:30.928Z",
+  "entries": [
+    {
+      "rel": "dist/cn-progress.js",
+      "existed": false,
+      "original": "original-0.bin",
+      "shaBefore": null,
+      "shaAfter": "d16e1a0ab945f423fa39a53462400668feb0c8f1c2268845798cceac6bf50667"
+    },
+    {
+      "rel": "dist/cn-ui-extra.js",
+      "existed": false,
+      "original": "original-1.bin",
+      "shaBefore": null,
+      "shaAfter": "21ae398562d47742dd55298f6095cd9a819296856552eeb1831057e58c8b5329"
+    },
+    {
+      "rel": "dist/index.html",
+      "existed": true,
+      "original": "original-2.bin",
+      "shaBefore": "73a449e1bf2c0f2d7ff54f0b8a50545be6bf94b1ec9d5fc513f536aa7eb2944d",
+      "shaAfter": "f530cf66e42dc20f5d9645f769b965f5f745f6883c15d2e7398ce3e39820fc5a"
+    }
+  ]
+}

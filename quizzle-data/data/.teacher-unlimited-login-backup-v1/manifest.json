@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "originalSha256": "569b28c140cd7d38c183df0489bafeb7f603e7aac94a842130dca4a64a67d1c5",
+  "patchedSha256": "495904729c8daf11c6691022a36f4cd0680b145fcb8241e093f225dd47996c86",
+  "file": "/quizzle/server/routes/auth.js"
+}

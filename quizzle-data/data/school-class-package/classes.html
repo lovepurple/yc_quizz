@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>学校组织架构管理</title><link rel="stylesheet" href="/school/classes.css"></head>
+<body><main class="app">
+<header class="top"><div><div class="eyebrow">校园测评中心 / 超级管理员</div><h1>学校组织架构管理</h1><p>按「一级组织 → 二级年级 → 三级班级」建立学校目录，名称全部支持自定义。</p></div><nav><a class="btn ghost" href="/school/admin">← 返回教师管理</a><a class="btn ghost" href="/">测验首页</a></nav></header>
+<div id="flash" role="status" aria-live="polite" class="flash" hidden></div>
+<div id="main" hidden>
+<section class="stats" id="stats"></section>
+<section class="card"><div class="section-head"><div><h2>创建三级组织架构</h2><p class="sub">示例：书香学堂 → 七年级 → 2601班。名称不再限定为小学、初中、高中。</p></div><span class="chip">三级自定义</span></div>
+<div class="create-grid">
+<form id="unitForm" class="create-box"><div class="step">一级</div><h3>组织 / 学部</h3><label>一级名称<input id="unitName" maxlength="60" placeholder="例如：书香学堂" required></label><button class="btn solid" type="submit">＋ 创建一级组织</button></form>
+<form id="gradeForm" class="create-box"><div class="step">二级</div><h3>年级 / 分组</h3><label>所属一级组织<select id="gradeUnit" required></select></label><label>二级名称<input id="gradeName" maxlength="60" placeholder="例如：七年级" required></label><button class="btn solid" type="submit">＋ 创建二级年级</button></form>
+<form id="classForm" class="create-box"><div class="step">三级</div><h3>班级</h3><label>所属一级组织<select id="classUnit" required></select></label><label>所属二级年级<select id="classGrade" required></select></label><label>三级班级名称<input id="className" maxlength="60" placeholder="例如：2601班" required></label><button class="btn solid" type="submit">＋ 创建班级</button></form>
+</div></section>
+<section class="card"><div class="section-head"><div><h2>批量创建班级</h2><p class="sub">先选择组织和年级，再输入班级名称；每行一个班级。</p></div><button id="csvTemplate" class="btn ghost" type="button">下载班级名称模板</button></div>
+<div class="batch-grid"><label>一级组织<select id="batchUnit"></select></label><label>二级年级<select id="batchGrade"></select></label></div>
+<label>待创建班级（每行一个）<textarea id="batchText" rows="4" placeholder="2601班&#10;2602班&#10;2603班"></textarea></label>
+<div class="inline"><label class="upload" for="csvFile">导入班级名称 CSV<input type="file" id="csvFile" accept=".csv,text/csv" hidden></label><button class="btn solid" id="submitBatch" type="button">确认批量创建</button><span class="help" id="csvInfo">重复名称会跳过，系统要求班级名称全校唯一，以保持学生账号和成绩关联准确。</span></div></section>
+<section class="card"><div class="section-head"><div><h2>全校三级组织目录</h2><p class="sub">可以修改组织名称、年级名称，班级可停用或删除。已有成绩关联的班级不允许直接改名或删除。</p></div><button class="btn ghost" id="reload" type="button">刷新目录</button></div><div id="orgTree" class="org-tree"></div></section>
+<section class="card"><div class="section-head"><div><h2>给教师分配任教班级</h2><p class="sub">先选一级组织，再选二级年级，勾选三级班级；支持跨组织、跨年级多选。</p></div><span class="chip">服务端权限校验</span></div>
+<div class="grant-top"><label>选择教师<select id="teacherSelect"></select></label><div class="assigned" id="assignedSummary">请选择教师</div></div>
+<div class="grant-selects"><label>一级组织<select id="grantUnit"></select></label><label>二级年级<select id="grantGrade"></select></label></div>
+<div id="grantClasses" class="grant-grid"></div><div class="inline"><button class="btn solid" id="saveGrants" type="button">保存教师任教班级</button><span class="help" id="grantStatus"></span></div></section>
+</div>
+<div id="unauthed" class="card" hidden><h2>需要超级管理员权限</h2><p>请使用学校超级管理员账号登录后，再访问此页面。</p><a class="btn solid" href="/">返回首页登录</a></div>
+<footer>育才实验学校 · 组织目录保存在现有 Docker 数据卷中。升级只扩展班级元数据，不删除学生、测验或成绩。</footer>
+</main><script src="/school/classes.js" defer></script></body></html>

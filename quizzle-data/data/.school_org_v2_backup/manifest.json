@@ -1,0 +1,67 @@
+{
+  "kind": "school-organization-teacher-v2",
+  "version": "2.0.0",
+  "createdAt": "2026-11-06T04:40:18.483Z",
+  "files": [
+    {
+      "relative": "data/school-class-package/classes.html",
+      "save": "original-00",
+      "beforeHash": "f9aa00013eb3fbee297f847f1228bce5aec04e65e2c938f531f20ae1b78999a6",
+      "afterHash": "72857e5c1ef82dd79af405c4485f64a12461f349169fa615e2542e4593b6b76c"
+    },
+    {
+      "relative": "data/school-class-package/classes.js",
+      "save": "original-01",
+      "beforeHash": "e3881088c30aa96c4c3a0a9764222d05d4f79f6c4ebfde23e0b6436d6cb69945",
+      "afterHash": "cdeead493fb7c07b28e30bc195e520ec7e1711bd92f5ddaa13c16f507c69ab46"
+    },
+    {
+      "relative": "data/school-class-package/classes.css",
+      "save": "original-02",
+      "beforeHash": "109f3f820c20b446c49b42461e39acbbd6516b37e2dae077ce1fb82e16df9f04",
+      "afterHash": "4b2ef83f2b004a5ec5345c44a995022e26c08593c287de6a9e8b72813083f1f7"
+    },
+    {
+      "relative": "data/school-roles-package/scope-api.js",
+      "save": "original-03",
+      "beforeHash": "86743bb73a9b8415cd696a2c2620824b31f00d99b097bb11e4942af5433816ff",
+      "afterHash": "1af08435c2addc0638b35dc1835c705170eab49ebeab1c8d6f0acb1a6dd2e378"
+    },
+    {
+      "relative": "data/school-roles-package/teacher-roles.js",
+      "save": "original-04",
+      "beforeHash": "2f010dd45d737c2df88b962d5662e054bb53e40e857aaa8964da7ea1443ab184",
+      "afterHash": "e7f2a11dda2dace4fb4e4ece200486b14adc5f78e799ab4f3f354cf263e83324"
+    },
+    {
+      "relative": "data/school-teacher-ui-v2/dashboard-plus.js",
+      "save": "original-05",
+      "beforeHash": "6a17071fe70560c1213b9ce38306e3e8287f1493891b9e1ace81bb8ce02b4cf2",
+      "afterHash": "ebd3f65662a977f57a89566e4969bde6ab4592d2d9d24672c6b49c293c6eb394"
+    },
+    {
+      "relative": "server/utils/auth.js",
+      "save": "original-06",
+      "beforeHash": "c1053d96f6d3d142de115ec85258e65fa0d43c9ad8a54b658640b4c8983d85f8",
+      "afterHash": "939e022b235ba71bb9c878c5dab3786b86afe04da4b4e66fc81f4a82bba0890c"
+    },
+    {
+      "relative": "server/index.js",
+      "save": "original-07",
+      "beforeHash": "341ae054bd87d90b4e4f34daaacc4235670499185b3d7f0879198996d55f4cac",
+      "afterHash": "1a3240d532abd655ff532092df89f9ae47442b857bf9d79bc236eea64f011b85"
+    },
+    {
+      "relative": "data/school-package/school-pages.js",
+      "save": "original-08",
+      "beforeHash": "f544dbdb6bcf5a114eb579a3b5d512076c3bff34f12ec1328bae685fc561f285",
+      "afterHash": "fcaa4ddd93aee0d87f26afdccb732cc32611de582eda7a7b8899d8efe9e37a7b"
+    },
+    {
+      "relative": "dist/index.html",
+      "save": "original-09",
+      "beforeHash": "4c8bf901af56e402d2bbd9e9d3fc5f130a5abc06a4e246810c09375db17f2119",
+      "afterHash": "09efa94ebe209bd1a67ef1caf67c2b6779eb1bb2553ddfd535c1f8b2174230cc"
+    }
+  ]
+}

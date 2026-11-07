@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "name": "/quizzle/server/index.js",
+      "before": "3d93b3c86e366d83790f7ac9958aea319af3b5c242ab2c9f4fcb8c122d8ea619",
+      "after": "686e2ecad0fda800e50cf52af72ce4760b51ea173f2dd4783e0f8d88f1f9dede",
+      "original": "original-0"
+    },
+    {
+      "name": "/quizzle/data/school-package/admin.html",
+      "before": "95680b04033afbf74cbdef634995d30f0253867f4f4e138bd9168a0a507acfaf",
+      "after": "e48963cf7273afecf5ec2fec00fa03216ccae8bcac47de252a4af4db57ef8c71",
+      "original": "original-1"
+    },
+    {
+      "name": "/quizzle/data/school-package/admin.js",
+      "before": "9b7f5dfdc1d5b954137a7eb592edcb6699beaae90f4c18bf458c99a8ef0c3cc9",
+      "after": "b6c011669c480272389a73854983dd203b511e25213bc24c8a9eef7f6bf0da85",
+      "original": "original-2"
+    }
+  ]
+}
